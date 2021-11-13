@@ -1,13 +1,15 @@
 :root {
-  --title-font-size: 4rem;
+  --title-font-size: 3.8rem;
   --title-font-family: dazzle-unicase, sans-serif;
+  --title-font-weight: bold;
+  --title-mobile-font-size: 2rem;
   --subtitle-font-size: 1.4rem;
 }
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: Helvetica Neue, sans-serif;
   width: 100%;
   height: 100%;
 }

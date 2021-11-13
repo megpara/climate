@@ -1,27 +1,92 @@
+.backgroundImage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("../public/landscape.jpg");
+  background-size: cover;
+  filter: brightness(0.75);
+}
 .container {
+  position: relative;
   width: 100%;
   height: 100%;
   padding: 2rem;
-  background-image: url("../public/landscape.jpg");
-  background-size: cover;
   font-family: Montserrat;
   font-weight: 600;
 }
+.eventDetails {
+  display: flex;
+  color: white;
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+.detail {
+  flex: 0 0 33.3333%;
+}
+.detailCenter {
+  text-align: center;
+}
+.detailRight {
+  text-align: right;
+}
 .titleDiv {
-  padding: 8rem 0 0 8rem;
-  width: 800px;
+  max-width: 800px;
+  margin: 6rem 8rem;
 }
 .title {
   font-family: var(--title-font-family);
-  font-weight: 400;
+  font-weight: var(--title-font-weight);
   font-style: normal;
   font-size: var(--title-font-size);
   color: white;
 }
 .subtitle {
   color: white;
-  font-weight: 400;
+  font-weight: 200;
   font-size: var(--subtitle-font-size);
+  margin-bottom: 20px;
+}
+.mainButton {
+  background: #ff470f;
+  width: 100px;
+  border: none;
+  color: white;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 30px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.emailTitle {
+  color: white;
+  margin-bottom: 10px;
+  font-size: var(--subtitle-font-size);
+  font-family: var(--title-font-family);
+  text-transform: lowercase;
+  letter-spacing: 2px;
+  font-weight: 300;
+}
+.emailInput {
+  display: block;
+  width: 300px;
+  border: 2px solid white;
+  background: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 10px;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+.emailInput:focus {
+  outline: none;
 }
 @media (max-width: 600px) {
+  .titleDiv {
+    margin: 2rem;
+  }
+  .title {
+    font-size: var(--title-mobile-font-size)
+  }
 }
