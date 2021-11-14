@@ -30,8 +30,8 @@
   text-align: right;
 }
 .titleDiv {
-  max-width: 800px;
-  margin: 6rem 8rem;
+  max-width: 700px;
+  margin: 8rem;
 }
 .title {
   font-family: var(--title-font-family);
@@ -52,7 +52,7 @@
   border: none;
   color: white;
   padding: 14px;
-  font-size: 16px;
+  font-size: 14px;
   border-radius: 30px;
   letter-spacing: 2px;
   font-weight: 500;

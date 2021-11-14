@@ -1,9 +1,10 @@
 :root {
-  --title-font-size: 3.8rem;
+  --title-font-size: 3rem;
   --title-font-family: dazzle-unicase, sans-serif;
   --title-font-weight: bold;
+  --title-line-height: 70px;
   --title-mobile-font-size: 2rem;
-  --subtitle-font-size: 1.4rem;
+  --subtitle-font-size: 1.3rem;
 }
 html,
 body {
