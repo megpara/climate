@@ -19,6 +19,8 @@
   color: white;
   font-weight: 300;
   font-size: 1.2rem;
+  font-family: var(--secondary-font-family);
+  text-transform: lowercase;
 }
 .detail {
   flex: 0 0 33.3333%;
@@ -55,8 +57,14 @@
   font-size: 14px;
   border-radius: 30px;
   letter-spacing: 2px;
-  font-weight: 500;
+  font-weight: unset;
   margin-top: 20px;
+  font-family: var(--secondary-font-family);
+  text-transform: lowercase;
+  cursor: pointer;
+}
+.mainButton:hover {
+  background: #ff470fcf;
 }
 .emailTitle {
   color: white;
@@ -66,12 +74,14 @@
   text-transform: lowercase;
   letter-spacing: 2px;
   font-weight: 300;
+  font-family: var(--secondary-font-family);
+  text-transform: lowercase;
 }
 .emailInput {
   display: block;
   width: 300px;
   border: 2px solid white;
-  background: none;
+  background: #ffffff17;
   color: white;
   border-radius: 5px;
   font-size: 15px;
@@ -81,12 +91,34 @@
 }
 .emailInput:focus {
   outline: none;
+  background: none;
 }
 @media (max-width: 600px) {
   .titleDiv {
-    margin: 2rem;
+    margin: 7rem 0;
   }
   .title {
     font-size: var(--title-mobile-font-size)
+  }
+  .subtitle {
+    font-size: var(--subtitle-mobile-font-size);
+  }
+  .emailTitle {
+    font-size: 16px;
+  }
+  .eventDetails {
+    display: unset;
+    flex-wrap: unset;
+  }
+  .detail {
+    flex: unset;
+    display: block;
+    text-align: center;
+  }
+  .detailCenter {
+    text-align: center;
+  }
+  .detailRight {
+    display: none;
   }
 }
