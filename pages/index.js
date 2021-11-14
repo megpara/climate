@@ -1,10 +1,32 @@
+import { useEffect, useRef } from "react";
 import Layout from "../components/Layout.js";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
+  const sunsetRef = useRef();
+
+  useEffect(() => {
+    if (sunsetRef.current) {
+      let frame = 0;
+      let rotation = 0;
+      function animate() {
+        frame = requestAnimationFrame(animate);
+        sunsetRef.current.style.filter = `hue-rotate(${rotation}deg) brightness(.75)`;
+        rotation += 5;
+      }
+      animate();
+    }
+
+    return () => {
+      cancelAnimationFrame(frame);
+    };
+  }, []);
+
   return (
     <Layout>
       <div className={styles.backgroundImage} />
+      <div className={styles.backgroundImage2} ref={sunsetRef} />
+
       <div className={styles.container}>
         <div className={styles.eventDetails}>
           <div className={styles.detail}>Los Angeles, UCLA</div>

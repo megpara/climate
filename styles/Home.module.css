@@ -4,7 +4,16 @@
   height: 100%;
   background-image: url("../public/landscape.jpg");
   background-size: cover;
+  background-position: center;
   filter: brightness(0.75);
+}
+.backgroundImage2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("../public/landscape_sunset.png");
+  background-size: cover;
+  background-position: center;
 }
 .container {
   position: relative;
@@ -98,7 +107,7 @@
     margin: 7rem 0;
   }
   .title {
-    font-size: var(--title-mobile-font-size)
+    font-size: var(--title-mobile-font-size);
   }
   .subtitle {
     font-size: var(--subtitle-mobile-font-size);
