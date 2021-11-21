@@ -1,39 +1,24 @@
-.backgroundImage {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image: url("../public/landscape.jpg");
-  background-size: cover;
-  filter: brightness(0.75);
-}
-.container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  padding: 2rem;
-  font-family: Montserrat;
-  font-weight: 600;
-}
 .eventDetails {
-  display: flex;
   color: white;
+  font-weight: 200;
+  font-size: var(--subtitle-font-size);
+}
+.boldSubtitle {
+  font-size: var(--subtitle-font-size);
+  letter-spacing: 1px;
   font-weight: 300;
-  font-size: 1.2rem;
   font-family: var(--secondary-font-family);
-  text-transform: lowercase;
+  margin-bottom: 5px;
 }
 .detail {
-  flex: 0 0 33.3333%;
-}
-.detailCenter {
-  text-align: center;
-}
-.detailRight {
-  text-align: right;
+  font-weight: 200;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 .titleDiv {
-  max-width: 700px;
-  margin: 8rem;
+  max-width: 710px;
+  align-self: center;
+  margin-top: 7rem;
 }
 .title {
   font-family: var(--title-font-family);
@@ -41,45 +26,67 @@
   font-style: normal;
   font-size: var(--title-font-size);
   color: white;
+  text-transform: uppercase;
+  line-height: 56px;
 }
 .subtitle {
   color: white;
   font-weight: 200;
   font-size: var(--subtitle-font-size);
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
-.mainButton {
-  background: #ff470f;
-  width: 100px;
-  border: none;
-  color: white;
-  padding: 14px;
-  font-size: 14px;
-  border-radius: 30px;
-  letter-spacing: 2px;
-  font-weight: unset;
+.scrollContainer {
+  position: absolute;
+  bottom: 2rem;
+  width: 100%;
+  height: 110px;
+  left: 0;
+  text-align: center;
+}
+.scroll {
+  text-transform: lowercase;
+}
+.scroll::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0.1rem;
+  height: 4.8rem;
+  background-color: white;
+}
+.contentWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.featureDiv {
+  text-align: center;
+  margin-top: 2rem;
+  width: 80%;
+  max-width: 800px;
+}
+.bulletPoints {
+  display: flex;
   margin-top: 20px;
-  font-family: var(--secondary-font-family);
-  text-transform: lowercase;
-  cursor: pointer;
 }
-.mainButton:hover {
-  background: #ff470fcf;
+.smallText {
+  margin-top: 20px;
+  font-size: 1rem;
 }
-.emailTitle {
-  color: white;
-  margin-bottom: 10px;
-  font-size: var(--subtitle-font-size);
-  font-family: var(--title-font-family);
-  text-transform: lowercase;
-  letter-spacing: 2px;
-  font-weight: 300;
-  font-family: var(--secondary-font-family);
-  text-transform: lowercase;
+.emailContainer {
+  width: 530px;
+  text-align: center;
+  margin-top: 100px;
 }
 .emailInput {
   display: block;
-  width: 300px;
+  width: 100%;
   border: 2px solid white;
   background: #ffffff17;
   color: white;
@@ -88,17 +95,42 @@
   padding: 10px;
   letter-spacing: 1px;
   font-weight: 600;
+  margin: 10px 0 15px 0;
 }
 .emailInput:focus {
   outline: none;
   background: none;
 }
+.mainButton {
+  background: #ff470f;
+  width: 200px;
+  border: none;
+  color: white;
+  padding: 14px;
+  font-size: 14px;
+  border-radius: 30px;
+  letter-spacing: 2px;
+  font-weight: unset;
+  margin: auto;
+  font-family: var(--secondary-font-family);
+  cursor: pointer;
+  display: block;
+}
+.mainButton:hover {
+  background: #ff470fcf;
+}
+.footer {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+}
+
 @media (max-width: 600px) {
   .titleDiv {
     margin: 7rem 0;
   }
   .title {
-    font-size: var(--title-mobile-font-size)
+    font-size: var(--title-mobile-font-size);
   }
   .subtitle {
     font-size: var(--subtitle-mobile-font-size);
@@ -106,19 +138,14 @@
   .emailTitle {
     font-size: 16px;
   }
-  .eventDetails {
-    display: unset;
-    flex-wrap: unset;
-  }
   .detail {
-    flex: unset;
     display: block;
     text-align: center;
   }
-  .detailCenter {
+  .footer {
+    width: 100%;
+    position: absolute;
     text-align: center;
-  }
-  .detailRight {
-    display: none;
+    bottom: 2rem;
   }
 }
