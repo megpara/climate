@@ -1,3 +1,35 @@
+.backgroundContainer {
+  position: relative;
+  border: 12px solid white;
+  height: 100%;
+}
+.backgroundImage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  filter: brightness(0.75);
+  /* border-radius: 20px; */
+  background-position: center top;
+}
+.topBackgroundImage {
+  background-image: url("../public/landscape.jpg");
+}
+.gradientBackground {
+  background: rgb(9,94,116);
+  background: linear-gradient(0deg, rgba(9,94,116,0.8645833333333334) 0%, rgba(179,178,178,0.8841911764705882) 100%);
+}
+.mainContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  font-family: Montserrat;
+  font-weight: 600;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
 .eventDetails {
   color: white;
   font-weight: 200;
@@ -135,6 +167,9 @@
   .subtitle {
     font-size: var(--subtitle-mobile-font-size);
   }
+  .boldSubtitle {
+    text-align: center;
+  }
   .emailTitle {
     font-size: 16px;
   }
@@ -147,5 +182,11 @@
     position: absolute;
     text-align: center;
     bottom: 2rem;
+  }
+  .bulletPoints {
+    display: unset;
+  }
+  .featureDiv {
+    width: 100%;
   }
 }

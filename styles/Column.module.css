@@ -8,3 +8,8 @@
   font-size: var(--subtitle-font-size);
   margin: 10px 0;
 }
+@media (max-width: 600px) {
+  .column {
+    text-align: center;
+  }
+}
