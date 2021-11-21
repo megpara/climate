@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import Column from "../components/Column.js";
 import Layout from "../components/Layout.js";
 import styles from "../styles/Home.module.css";
@@ -18,12 +19,33 @@ const columns = [
 ];
 
 export default function Home() {
+  const sunsetRef = useRef();
+
+  useEffect(() => {
+    if (sunsetRef.current) {
+      let frame = 0;
+      let rotation = 0;
+      function animate() {
+        frame = requestAnimationFrame(animate);
+        sunsetRef.current.style.filter = `hue-rotate(${rotation}deg) brightness(.75)`;
+        rotation += 5;
+      }
+      animate();
+    }
+
+    return () => {
+      cancelAnimationFrame(frame);
+    };
+  }, []);
+
   return (
     <Layout>
       <div className={styles.backgroundContainer}>
         <div
           className={`${styles.backgroundImage} ${styles.topBackgroundImage}`}
         />
+        <div className={styles.backgroundImage2} ref={sunsetRef} />
+
         <div className={styles.mainContainer}>
           <div className={styles.eventDetails}>
             <div className={styles.boldSubtitle}>Save the Date</div>
@@ -58,7 +80,7 @@ export default function Home() {
               <div className={styles.title}>Featuring</div>
               <div className={styles.bulletPoints}>
                 {columns.map((column) => {
-                  return <Column points={column} />;
+                  return <Column key={column} points={column} />;
                 })}
               </div>
               <div className={styles.smallText}>
