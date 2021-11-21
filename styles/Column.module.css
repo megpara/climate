@@ -1,0 +1,15 @@
+.column {
+  flex: 0 0 50%;
+  text-align: left;
+}
+.bullet {
+  color: white;
+  font-weight: 200;
+  font-size: var(--subtitle-font-size);
+  margin: 10px 0;
+}
+@media (max-width: 600px) {
+  .column {
+    text-align: center;
+  }
+}
