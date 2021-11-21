@@ -80,7 +80,7 @@ export default function Home() {
               <div className={styles.title}>Featuring</div>
               <div className={styles.bulletPoints}>
                 {columns.map((column) => {
-                  return <Column key={column} points={column} />;
+                  return <Column points={column} />;
                 })}
               </div>
               <div className={styles.smallText}>
