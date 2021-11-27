@@ -1,6 +1,7 @@
 import { forwardRef, useEffect, useRef } from "react";
 import Column from "../components/Column.js";
 import Layout from "../components/Layout.js";
+import Wccc from "../components/Logos/Wccc.js";
 import styles from "../styles/Home.module.css";
 
 const columns = [
@@ -56,17 +57,26 @@ const Hero = forwardRef((_, sunsetRef) => {
 
       <div className={styles.mainContainer}>
         <div className={styles.eventDetails}>
-          <div className={styles.boldSubtitle}>Save the Date</div>
-          <div className={styles.detail}>A Hybrid Virtual/In-Person Event</div>
-          <div className={styles.detail}>UCLA/Los Angeles. March 19th</div>
+          <div style={{ width: 70, marginRight: 20 }}>
+            <img style={{ width: "100%" }} src={"wire.png"} />
+          </div>
+          <div>
+            <div className={styles.boldSubtitle}>Save the Date</div>
+            <div className={styles.detail}>
+              A Hybrid Virtual/In-Person Event
+            </div>
+            <div className={styles.detail}>
+              UCLA/Los Angeles. March 19th 2022
+            </div>
+          </div>
         </div>
         <div className={styles.titleDiv}>
           <div className={styles.title}>
             The West Coast Climate Crisis Symposium
           </div>
           <div className={styles.subtitle}>
-            The crucial role of science journalists in offering solutions to
-            stop the climate crisis.
+            A day-long conference about the crucial role of science journalists
+            in offering solutions to the climate crisis
           </div>
         </div>
         <div className={styles.scrollContainer}>
@@ -83,7 +93,6 @@ const Features = () => {
       <div
         className={`${styles.backgroundImage} ${styles.gradientBackground}`}
       />
-
       <div className={styles.mainContainer}>
         <div className={`${styles.contentWrapper} ${styles.flex}`}>
           <div className={styles.featureDiv}>
@@ -99,6 +108,7 @@ const Features = () => {
               Speakers and program to be announced
             </div>
           </div>
+          <div className={styles.greenLine} />
           <div className={styles.emailContainer}>
             <div className={styles.boldSubtitle}>
               Leave your email for more information
@@ -106,13 +116,21 @@ const Features = () => {
             <input className={styles.emailInput} />
             <button className={styles.mainButton}>Submit</button>
           </div>
-          <div className={styles.footer}>
-            <div className={styles.detail}>
-              Organized by SoCal Science Writers (Regional Chapter of the NASW)
-            </div>
-            <div className={styles.detail}>
-              Funded by a Grant from the Science Literacy Foundation
-            </div>
+        </div>
+      </div>
+      <div className={styles.footer}>
+        <div className={styles.detail}>
+          Organized by SoCal Science Writers (Regional Chapter of the NASW)
+        </div>
+        <div className={styles.detail}>
+          Funded by a Grant from the Science Literacy Foundation
+        </div>
+        <div className={styles.footerImgContainer}>
+          <div>
+            <img style={{ width: "100%" }} src={"science_literary_logo.png"} />
+          </div>
+          <div>
+            <img style={{ width: "100%" }} src={"nasw_logo.svg"} />
           </div>
         </div>
       </div>
