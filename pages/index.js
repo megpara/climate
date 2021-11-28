@@ -58,7 +58,7 @@ const Hero = forwardRef((_, sunsetRef) => {
       <div className={styles.mainContainer}>
         <div className={styles.eventDetails}>
           <div style={{ width: 70, marginRight: 20 }}>
-            <img style={{ width: "100%" }} src={"wire.png"} />
+            <img style={{ width: "100%" }} src={"wccc_logo.png"} />
           </div>
           <div>
             <div className={styles.boldSubtitle}>Save the Date</div>
@@ -79,6 +79,18 @@ const Hero = forwardRef((_, sunsetRef) => {
             in offering solutions to the climate crisis
           </div>
         </div>
+        <div>
+          <button
+            className={styles.mainButton}
+            onClick={() => {
+              const feature = document.getElementById("feature");
+              const { top, height } = feature.getBoundingClientRect();
+              window.scrollTo({ top, behavior: "smooth" });
+            }}
+          >
+            Learn More
+          </button>
+        </div>
         <div className={styles.scrollContainer}>
           <span className={`${styles.detail} ${styles.scroll}`}>Scroll</span>
         </div>
@@ -89,7 +101,11 @@ const Hero = forwardRef((_, sunsetRef) => {
 
 const Features = () => {
   return (
-    <div className={styles.backgroundContainer} style={{ height: "100vh" }}>
+    <div
+      className={styles.backgroundContainer}
+      style={{ height: "100vh" }}
+      id="feature"
+    >
       <div
         className={`${styles.backgroundImage} ${styles.gradientBackground}`}
       />
