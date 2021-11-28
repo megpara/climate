@@ -3,7 +3,7 @@
   text-align: left;
 }
 .bullet {
-  color: white;
+  /* color: #02838a; */
   font-weight: 200;
   font-size: var(--subtitle-font-size);
   margin: 10px 0;

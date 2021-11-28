@@ -1,6 +1,5 @@
 .backgroundContainer {
   position: relative;
-  border: 12px solid white;
   height: 100%;
 }
 .backgroundImage {
@@ -9,9 +8,8 @@
   height: 100%;
   background-size: cover;
   background-position: center;
-  filter: brightness(0.75);
-  /* border-radius: 20px; */
-  background-position: center;
+  filter: brightness(0.6);
+  background-position: center top;
 }
 .backgroundImage2 {
   position: absolute;
@@ -19,21 +17,10 @@
   height: 100%;
   background-image: url("../public/landscape_sunset_smoll.png");
   background-size: cover;
-  background-position: center;
+  background-position: center top;
 }
 .topBackgroundImage {
   background-image: url("../public/landscape_smoll.png");
-}
-.gradientBackground {
-  background: rgb(9, 94, 116);
-  background: linear-gradient(
-    132deg,
-    rgb(239 160 127) 13%,
-    rgb(129 201 211) 100%
-  );
-  background: linear-gradient(179deg, #ffffff38 30%, #305b87 60%);
-
-  filter: brightness(1);
 }
 .mainContainer {
   position: relative;
@@ -47,39 +34,42 @@
   flex-direction: column;
 }
 .eventDetails {
-  color: white;
+  color: #02838a;
   font-weight: 200;
   font-size: var(--subtitle-font-size);
-  background: linear-gradient(360deg, #afafaf00 0%, #92e3b2);
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
-  color: white;
-  padding: 20px 20px 60px;
+  background-color: white;
+  padding: 2rem;
   display: flex;
   align-items: center;
 }
 .boldSubtitle {
   font-size: var(--subtitle-font-size);
   letter-spacing: 1px;
-  font-weight: 300;
-  font-family: var(--secondary-font-family);
-  margin-bottom: 5px;
+  font-weight: 600;
+  font-family: var(--title-font-family);
+  text-transform: uppercase;
 }
 .detail {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem;
 }
+.centerFlex {
+  display: flex;
+  height: 100%;
+}
 .titleDiv {
-  max-width: 710px;
+  max-width: 800px;
   align-self: center;
-  margin-top: 8rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin: auto;
 }
 .title {
   font-family: var(--title-font-family);
@@ -97,28 +87,23 @@
   font-weight: 400;
   font-size: var(--subtitle-font-size);
   margin: 20px 0;
-  text-shadow: 2px 2px #d98686;
   max-width: 500px;
 }
 .scrollContainer {
   position: absolute;
   bottom: 2rem;
   width: 100%;
-  height: 110px;
+  /* height: 110px; */
   left: 0;
   text-align: center;
 }
 .scroll {
-  text-transform: lowercase;
-}
-.scroll::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0.1rem;
-  height: 4.8rem;
-  background-color: white;
+  font-family: var(--title-font-family);
+  font-weight: var(--title-font-weight);
+  font-style: normal;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 12px;
 }
 .contentWrapper {
   position: relative;
@@ -132,15 +117,16 @@
   justify-content: space-evenly;
   padding-top: 10px;
 }
+.featureContainer {
+  width: 100%;
+  color: #02838a;
+}
 .featureDiv {
   text-align: center;
-  /* margin-top: 2rem; */
   width: 80%;
   max-width: 800px;
-  background: #4e4c4c;
-  box-shadow: black 11px 11px;
-  padding: 40px;
-  border-radius: 30px;
+  margin: auto;
+  padding: 4rem 0;
 }
 .bulletPoints {
   display: flex;
@@ -151,9 +137,15 @@
   font-size: 1rem;
 }
 .emailContainer {
-  /* width: 530px; */
   text-align: center;
-  /* margin-top: 100px; */
+  background-color: #02838a;
+  color: white;
+}
+.emailDiv {
+  width: 60%;
+  max-width: 550px;
+  margin: auto;
+  padding: 4rem 0;
 }
 .emailInput {
   display: block;
@@ -174,8 +166,8 @@
 }
 .mainButton {
   background: #ff470f;
+  border: 2px solid white;
   width: 200px;
-  border: none;
   color: white;
   padding: 14px;
   font-size: 14px;
@@ -190,15 +182,22 @@
 .mainButton:hover {
   background: #ff470fcf;
 }
+.footerLogoDiv {
+  display: flex;
+}
+.footerLogo {
+  width: 80px;
+  margin: 0 20px 20px;
+  display: inline;
+}
 .footer {
-  /* position: absolute; */
   text-align: center;
-  padding: 20px;
+  padding: 2rem 2rem 0;
 }
 .footer > .detail {
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   line-height: unset;
-  font-weight: 500;
+  font-weight: 100;
 }
 .footerImgContainer {
   display: flex;
@@ -209,12 +208,6 @@
 }
 .footerImgContainer > div {
   flex: 0 0 40%;
-}
-.greenLine {
-  background: white;
-  height: 4px;
-  width: 71%;
-  margin: 10px 0px -8px;
 }
 @media (max-width: 600px) {
   .mainContainer {
@@ -246,9 +239,7 @@
     /* text-align: center; */
     font-size: 0.8rem;
   }
-  .featureDiv {
-    padding: 20px;
-  }
+
   .footer {
     width: 100%;
     /* text-align: center; */
