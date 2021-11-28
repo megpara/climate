@@ -34,14 +34,14 @@
   flex-direction: column;
 }
 .eventDetails {
-  color: #02838a;
+  color: white;
   font-weight: 200;
   font-size: var(--subtitle-font-size);
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
-  background-color: white;
+  /* background-color: white; */
   padding: 2rem;
   display: flex;
   align-items: center;

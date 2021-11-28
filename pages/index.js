@@ -56,7 +56,7 @@ const Hero = forwardRef((_, sunsetRef) => {
       <div className={styles.mainContainer}>
         <div className={styles.eventDetails}>
           <div style={{ width: 80, marginRight: 20 }}>
-            <img style={{ width: "100%" }} src={"square_logo.png"} />
+            <img style={{ width: "100%" }} src={"wire.png"} />
           </div>
           <div>
             <div className={styles.boldSubtitle}>Save the Date</div>
