@@ -1,5 +1,6 @@
 import { forwardRef, useEffect, useRef } from "react";
 import Column from "../components/Column.js";
+import EmailSignup from "../components/EmailSignup/index.js";
 import Layout from "../components/Layout.js";
 import styles from "../styles/Home.module.css";
 
@@ -112,15 +113,7 @@ const Features = () => {
           </div>
         </div>
       </div>
-      <div className={styles.emailContainer}>
-        <div className={styles.emailDiv}>
-          <div className={styles.boldSubtitle}>
-            Leave your email for more information
-          </div>
-          <input className={styles.emailInput} />
-          <button className={styles.mainButton}>Submit</button>
-        </div>
-      </div>
+      <EmailSignup />
       <div className={styles.footer}>
         <div className={styles.footerImgContainer}>
           <div>
