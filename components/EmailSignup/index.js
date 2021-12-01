@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import homeStyles from "../../styles/Home.module.css";
 import { buttonText } from "./constants";
 import styles from "./EmailSignup.module.css";
-import Spinner from "./spinner";
+import Spinner from "./Spinner";
 import useApi from "./useApi";
 
 export default function EmailSignup() {
