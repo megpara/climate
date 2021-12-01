@@ -6,16 +6,16 @@ import styles from "../styles/Home.module.css";
 
 const columns = [
   [
-    "• Environmental Justice",
-    "• Holding Polluters Accountable",
-    "• Water for Thirsty Lands",
-    "• The Aquatic Killing Fields",
+    "Environmental Justice",
+    "Holding Polluters Accountable",
+    "Water for Thirsty Lands",
+    "The Aquatic Killing Fields",
   ],
   [
-    "• Regenerative Solutions",
-    "• New Ways to Tell Climate Stories",
-    "• Networking / Meeting with Editors",
-    "• And Much More",
+    "Regenerative Solutions",
+    "New Ways to Tell Climate Stories",
+    "Networking / Meeting with Editors",
+    "And Much More",
   ],
 ];
 
@@ -99,7 +99,7 @@ const Features = () => {
         <div className={styles.featureDiv}>
           <div
             className={styles.title}
-            style={{ letterSpacing: 5, color: "#02838a;" }}
+            style={{ letterSpacing: 5, color: "#02838a" }}
           >
             Featuring
           </div>

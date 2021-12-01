@@ -42,7 +42,7 @@ export default function EmailSignup() {
           className={`${homeStyles.mainButton} ${
             styles[api.state.buttonText.toLowerCase()]
           }`}
-          style={{ transition: "background 500ms" }}
+          style={{ transition: "background 500ms", fontWeight: "bold" }}
         >
           {api.state.fetching ? <Spinner /> : api.state.buttonText}
         </motion.button>
