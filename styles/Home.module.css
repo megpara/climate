@@ -130,11 +130,13 @@
 }
 .bulletPoints {
   display: flex;
+  justify-content: center;
   margin-top: 20px;
 }
 .smallText {
   margin-top: 20px;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 .emailContainer {
   text-align: center;
@@ -197,7 +199,8 @@
 .footer > .detail {
   letter-spacing: 1px;
   line-height: unset;
-  font-weight: 100;
+  font-weight: 400;
+  font-size: 1rem;
 }
 .footerImgContainer {
   display: flex;
@@ -245,11 +248,15 @@
     /* text-align: center; */
     /* bottom: 2rem; */
   }
+
+  .featureDiv {
+    width: 100%;
+  }
+}
+
+@media (max-width: 792px) {
   .bulletPoints {
     display: unset;
     font-size: 1rem;
-  }
-  .featureDiv {
-    width: 100%;
   }
 }

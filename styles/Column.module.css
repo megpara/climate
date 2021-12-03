@@ -1,6 +1,7 @@
 .column {
-  flex: 0 0 50%;
+  /* flex: 0 0 50%; */
   text-align: left;
+  margin: 20px;
 }
 .bullet {
   /* color: #02838a; */
@@ -8,7 +9,7 @@
   font-size: var(--subtitle-font-size);
   margin: 10px 0;
 }
-@media (max-width: 600px) {
+@media (max-width: 792px) {
   .column {
     text-align: center;
   }
