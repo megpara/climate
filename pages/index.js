@@ -64,9 +64,7 @@ const Hero = forwardRef((_, sunsetRef) => {
             <div className={styles.detail}>
               A Hybrid Virtual/In-Person Event
             </div>
-            <div className={styles.detail}>
-              UCLA/Los Angeles. March 19th 2022
-            </div>
+            <div className={styles.detail}>UCLA/Los Angeles. June 4th 2022</div>
           </div>
         </div>
         <div className={styles.centerFlex}>
