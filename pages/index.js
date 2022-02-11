@@ -4,6 +4,10 @@ import EmailSignup from "../components/EmailSignup/index.js";
 import Layout from "../components/Layout.js";
 import styles from "../styles/Home.module.css";
 
+import Contentful from "../lib/contentful";
+import Schedule from "../components/Schedule/index.js";
+import Speakers from "../components/Speakers/index.js";
+
 const columns = [
   [
     "Environmental Justice",
@@ -19,7 +23,7 @@ const columns = [
   ],
 ];
 
-export default function Home() {
+export default function Home({ schedule, speakers }) {
   const sunsetRef = useRef();
 
   useEffect(() => {
@@ -41,6 +45,8 @@ export default function Home() {
 
   return (
     <Layout>
+      <Schedule schedule={schedule} />
+      <Speakers speakers={speakers} />
       <Hero ref={sunsetRef} />
       <Features />
     </Layout>
@@ -134,3 +140,15 @@ const Features = () => {
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const c = new Contentful();
+  const schedule = await c.getAllScheduleEntries();
+  const speakers = await c.getAllSpeakers();
+  return {
+    props: {
+      schedule,
+      speakers,
+    },
+  };
+}
