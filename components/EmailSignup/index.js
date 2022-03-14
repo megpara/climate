@@ -3,10 +3,10 @@ import homeStyles from "../../styles/Home.module.css";
 import { buttonText } from "./constants";
 import styles from "./EmailSignup.module.css";
 import Spinner from "./Spinner";
-import useApi from "./useApi";
+import useApiEmailSignup from "./useApiEmailSignup";
 
 export default function EmailSignup() {
-  const api = useApi();
+  const api = useApiEmailSignup();
   const onChange = (e) => {
     api.updateField(e.target.name, e.target.value);
   };

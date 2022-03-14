@@ -4,9 +4,8 @@ import EmailSignup from "../components/EmailSignup/index.js";
 import Layout from "../components/Layout.js";
 import styles from "../styles/Home.module.css";
 
-import Contentful from "../lib/contentful";
 import Schedule from "../components/Schedule/index.js";
-import Speakers from "../components/Speakers/index.js";
+import Nav from "../components/Nav/index.js";
 
 const columns = [
   [
@@ -23,7 +22,7 @@ const columns = [
   ],
 ];
 
-export default function Home({ schedule, speakers }) {
+export default function Home() {
   const sunsetRef = useRef();
 
   useEffect(() => {
@@ -32,7 +31,8 @@ export default function Home({ schedule, speakers }) {
       let rotation = 0;
       function animate() {
         frame = requestAnimationFrame(animate);
-        sunsetRef.current.style.filter = `hue-rotate(${rotation}deg) brightness(.75)`;
+        if (sunsetRef.current)
+          sunsetRef.current.style.filter = `hue-rotate(${rotation}deg) brightness(.75)`;
         rotation += 2.5;
       }
       animate();
@@ -45,8 +45,6 @@ export default function Home({ schedule, speakers }) {
 
   return (
     <Layout>
-      <Schedule schedule={schedule} />
-      <Speakers speakers={speakers} />
       <Hero ref={sunsetRef} />
       <Features />
     </Layout>
@@ -140,15 +138,3 @@ const Features = () => {
     </div>
   );
 };
-
-export async function getStaticProps() {
-  const c = new Contentful();
-  const schedule = await c.getAllScheduleEntries();
-  const speakers = await c.getAllSpeakers();
-  return {
-    props: {
-      schedule,
-      speakers,
-    },
-  };
-}

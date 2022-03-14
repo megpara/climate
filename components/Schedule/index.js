@@ -1,3 +1,6 @@
+import DayHeader from "./DayHeader";
+import ScheduleItem from "./Item";
+
 export default function Schedule({ schedule }) {
   let day;
   let prevDay;
@@ -10,12 +13,8 @@ export default function Schedule({ schedule }) {
         prevDay = day;
         return (
           <div key={item.title}>
-            <div style={{ fontSize: "2rem", fontWeight: "bold" }}>
-              {showDay ? `June ${day}th` : ""}
-            </div>
-            <div>
-              {time.getHours()} - {item.title}
-            </div>
+            {showDay && <DayHeader day={day} />}
+            <ScheduleItem item={item} />
           </div>
         );
       })}

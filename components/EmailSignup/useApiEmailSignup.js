@@ -43,7 +43,8 @@ const initialState = {
   buttonText: buttonText.submit,
 };
 
-const useApi = () => {
+// Probably deprecated in favor of the new generalized version
+const useApiEmailSignup = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const updateField = (name, value) =>
@@ -80,4 +81,4 @@ const useApi = () => {
   return { state, updateField, signup };
 };
 
-export default useApi;
+export default useApiEmailSignup;
