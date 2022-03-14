@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import useAuth from "../../hooks/useAuth";
 import RegisterSuccess from "../../components/Register/Success";
 import useView from "../../hooks/useView";
+import PageLayout from "../../components/PageLayout";
 
 const views = {
   registerForm: "1",
@@ -30,7 +31,7 @@ export default function Register() {
   const isRegistered = Boolean(registration);
 
   return (
-    <div>
+    <PageLayout>
       <Head>
         <title>Registration - The West Coast Climate Crisis Symposium</title>
         <meta
@@ -48,6 +49,6 @@ export default function Register() {
         />
       )}
       {view.success && <RegisterSuccess />}
-    </div>
+    </PageLayout>
   );
 }

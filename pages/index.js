@@ -1,11 +1,9 @@
-import { forwardRef, useEffect, useRef } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { forwardRef, useEffect, useRef, useState } from "react";
 import Column from "../components/Column.js";
 import EmailSignup from "../components/EmailSignup/index.js";
 import Layout from "../components/Layout.js";
 import styles from "../styles/Home.module.css";
-
-import Schedule from "../components/Schedule/index.js";
-import Nav from "../components/Nav/index.js";
 
 const columns = [
   [
@@ -52,6 +50,18 @@ export default function Home() {
 }
 
 const Hero = forwardRef((_, sunsetRef) => {
+  const [scroll, setScroll] = useState(false);
+  useEffect(() => {
+    function onScroll() {
+      if (window.scrollY == 0) {
+        setScroll(false);
+      } else {
+        setScroll(true);
+      }
+    }
+    window.addEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div className={styles.backgroundContainer}>
       <div
@@ -82,9 +92,19 @@ const Hero = forwardRef((_, sunsetRef) => {
             </div>
           </div>
         </div>
-        <div className={styles.scrollContainer}>
-          <span className={styles.scroll}>(Scroll)</span>
-        </div>
+        <AnimatePresence>
+          {!scroll && (
+            <motion.div
+              className={styles.scrollContainer}
+              initial={false}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ ease: "easeOut", duration: "0.5" }}
+            >
+              <span className={styles.scroll}>(Scroll)</span>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );

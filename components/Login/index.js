@@ -1,6 +1,7 @@
 import { Magic } from "magic-sdk";
 import { mutate } from "swr";
 import useAuth from "../../hooks/useAuth";
+import PageLayout from "../PageLayout";
 
 export default function Login() {
   const { user, loading } = useAuth();
@@ -26,11 +27,13 @@ export default function Login() {
     });
   };
   return (
-    <div>
-      <div>{!loading && user && user.email}</div>
+    <PageLayout>
+      <div>
+        <div>{!loading && user && user.email}</div>
 
-      {!user && <button onClick={login}>Login</button>}
-      {user && user.email && <button onClick={logout}>Logout</button>}
-    </div>
+        {!user && <button onClick={login}>Login</button>}
+        {user && user.email && <button onClick={logout}>Logout</button>}
+      </div>
+    </PageLayout>
   );
 }
