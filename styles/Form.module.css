@@ -25,8 +25,11 @@
 }
 
 .input {
+  color: white;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-weight: 600;
   padding: var(--padding-sm);
-  font-size: 1.2rem;
   border: 2px solid white;
   border-radius: 5px;
   background: #ffffff17;
