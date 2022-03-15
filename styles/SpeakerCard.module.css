@@ -1,0 +1,28 @@
+.card {
+  flex: 0 0 30%;
+  margin: 10px;
+  color: white;
+  font-family: Montserrat;
+}
+.speakerName {
+  font-family: var(--title-font-family);
+  font-weight: var(--title-font-weight);
+  font-size: 20px;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  letter-spacing: 2px;
+}
+.border {
+  border: 2px solid white;
+  background-color: #273f4c59;
+}
+.speakerText {
+  padding: 20px;
+  font-size: 14px;
+}
+.speakerTitle {
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding-bottom: 3px;
+}

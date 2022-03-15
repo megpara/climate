@@ -152,9 +152,6 @@ const Features = () => {
           Funded by a Grant from the Science Literacy Foundation
         </div>
       </div>
-      {/* <div className={styles.footerLogoDiv}>
-        <img className={styles.footerLogo} src="/square_logo.png" />
-      </div> */}
     </div>
   );
 };

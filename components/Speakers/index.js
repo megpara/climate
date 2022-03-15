@@ -1,11 +1,10 @@
 import PageLayout from "../PageLayout";
 import SpeakerCard from "./SpeakerCard";
-import speakerStyles from "../../styles/Speakers.module.css";
 
 export default function Speakers({ speakers }) {
   return (
     <PageLayout>
-      <div className={speakerStyles.container}>
+      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
         {speakers.map((speaker) => {
           return <SpeakerCard key={speaker.name} speaker={speaker} />;
         })}

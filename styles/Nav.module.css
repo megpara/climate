@@ -12,11 +12,8 @@
 }
 .navItems {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   padding-top: 10px;
-}
-.navItems a {
-  margin: 0 10px;
 }
 .navButtons {
   text-align: center;
@@ -24,7 +21,7 @@
   justify-content: right;
 }
 .primaryButton {
-  color: #a9aaa8;
+  color: #4a6a78;
   background-color: white;
   padding: 10px;
   margin-right: 20px;

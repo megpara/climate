@@ -3,6 +3,7 @@
   flex-direction: column;
   padding: 20px;
   align-items: center;
+  font-family: Montserrat;
 }
 
 .form > .formItem {
@@ -16,16 +17,28 @@
 }
 
 .label {
-  font-weight: bold;
+  font-family: var(--title-font-family);
+  font-weight: var(--title-font-weight);
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 1px;
 }
 
 .input {
   padding: var(--padding-sm);
   font-size: 1.2rem;
+  border: 2px solid white;
+  border-radius: 5px;
+  background: #ffffff17;
+  margin: 10px 0;
+}
+.input:focus {
+  outline: none;
 }
 
 .errorMessage {
-  color: red;
+  color: #ff470f;
+  font-weight: 600;
 }
 
 .submitButton {
@@ -37,7 +50,7 @@
   border-radius: 30px;
   letter-spacing: 2px;
   font-weight: unset;
-  margin: auto;
+  margin: 20px auto;
   font-family: var(--secondary-font-family);
   cursor: pointer;
   display: block;
