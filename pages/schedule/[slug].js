@@ -1,6 +1,6 @@
 import ScheduleItem from "../../components/Schedule/Item";
 import Contentful from "../../lib/contentful";
-
+import ErrorPage from "next/error";
 export default function ({ entry }) {
   if (!entry) {
     return <ErrorPage status={404} />;

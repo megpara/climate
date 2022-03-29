@@ -1,0 +1,7 @@
+.message {
+  background: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 50px;
+  color: var(--orange);
+}

@@ -60,6 +60,10 @@ const Hero = forwardRef((_, sunsetRef) => {
       }
     }
     window.addEventListener("scroll", onScroll);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   return (

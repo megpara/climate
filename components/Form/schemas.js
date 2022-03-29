@@ -10,3 +10,7 @@ export const RegisterSchema = Yup.object().shape({
     .required("Required"),
   email: Yup.string().email("Invalid email").required("Required"),
 });
+
+export const LoginSchema = Yup.object().shape({
+  email: Yup.string().email("Invalid email").required("Required"),
+});

@@ -42,7 +42,7 @@ export default async function handler(req, res) {
           process.env.ENCRYPTION_SECRET,
           Iron.defaults
         );
-        console.log(registration);
+
         CookieService.setRegisterTokenCookie(res, token);
         res.json(registration);
         resolve();

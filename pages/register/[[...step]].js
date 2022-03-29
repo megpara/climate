@@ -8,12 +8,22 @@ import RegisterSuccess from "../../components/Register/Success";
 import useView from "../../hooks/useView";
 import PageLayout from "../../components/PageLayout";
 
+import styles from "../../styles/Register.module.css";
+import { useEffect } from "react";
+import Contentful from "../../lib/contentful";
+import Schedule from "../../components/Schedule";
+import useAttendees from "../../hooks/useAttendees";
+
+import ErrorPage from "next/error";
+
 const views = {
   registerForm: "1",
-  success: "2",
+  schedule: "2",
+  success: "3",
 };
 
-export default function Register() {
+export default function Register({ schedule }) {
+  const { mutate, attendees } = useAttendees();
   const { user, registration } = useAuth();
   const router = useRouter();
   const view = useView(views, router.query.step);
@@ -29,7 +39,10 @@ export default function Register() {
   };
 
   const isRegistered = Boolean(registration);
-
+  // Jank
+  if (!schedule) {
+    return <ErrorPage status={404} />;
+  }
   return (
     <PageLayout>
       <Head>
@@ -39,7 +52,11 @@ export default function Register() {
           content="Register for The West Coast Climate Crisis Symposium"
         />
       </Head>
-      {isRegistered ? <h3>You are already registered</h3> : ""}
+      {isRegistered ? (
+        <h3 className={styles.message}>You are already registered</h3>
+      ) : (
+        ""
+      )}
       {view.registerForm && (
         <RegisterForm
           submit={submit}
@@ -48,7 +65,32 @@ export default function Register() {
           registration={registration}
         />
       )}
+      {view.schedule && (
+        <Schedule
+          schedule={schedule}
+          registration={registration}
+          mutate={mutate}
+          attendees={attendees}
+        />
+      )}
       {view.success && <RegisterSuccess />}
     </PageLayout>
   );
+}
+
+const c = new Contentful();
+export async function getStaticProps() {
+  const schedule = await c.getAllScheduleEntries();
+  return {
+    props: {
+      schedule,
+    },
+  };
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: true,
+  };
 }

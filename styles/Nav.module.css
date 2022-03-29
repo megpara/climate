@@ -13,16 +13,59 @@
 .navColumn {
   flex: 0 0 33.3333%;
 }
+
 .navItems {
   display: flex;
   justify-content: space-evenly;
   padding-top: 10px;
 }
+
+/* Line break top nav when it starts to crowd logo for iPad-ish */
+/* only on home screen */
+@media screen and (max-width: 1060px) {
+  .home.navItems {
+    flex-direction: column;
+    align-items: end;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* .navColumn:nth-of-type(1) ~ .navColumn {
+    display: none;
+  } */
+  .wide {
+    flex: 0 0 69%;
+  }
+
+  /* currently this is just moving the login and register button on the home page */
+  /* or just take this out of the nav it is home */
+  .navColumn.home {
+    position: absolute;
+    top: 100px;
+    right: 10px;
+  }
+
+  .navColumn:nth-of-type(2) {
+    display: none;
+  }
+
+  .navColumn:nth-of-type(3) {
+    justify-content: space-around;
+  }
+}
+
+/* @media screen and (max-width: 600px) {
+  .navColumn {
+    display: none;
+  }
+} */
+
 .navButtons {
   text-align: center;
   display: flex;
   justify-content: right;
 }
+
 .primaryButton {
   color: #4a6a78;
   background-color: white;
@@ -32,4 +75,55 @@
 .secondaryButton {
   padding: 10px;
   border: 1px solid white;
+}
+
+.bottomNav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .navButtons {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  /* Bottom mobile nav */
+
+  .bottomNav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    background: var(--orange);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+  }
+
+  .bottomNav div {
+    border: 3px white solid;
+    border-right: none;
+    border-bottom: none;
+    width: 54%;
+    /* height: 100%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .bottomNav div.selected {
+    border: none;
+    border-left: 3px solid white;
+  }
+  .bottomNav div:first-of-type {
+    border-left: none;
+  }
+  .primaryButton {
+    margin-right: 0px;
+  }
 }
