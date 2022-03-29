@@ -33,13 +33,14 @@ export default function Nav() {
           </div>
         </a>
       </div>
-      <div className={navStyles.navColumn}>
+      <div className={`${navStyles.navColumn} ${navStyles.navColumn2}`}>
         <div
           className={`${navStyles.navItems} ${isHome ? navStyles.home : ""}`}
         >
           {paths.map((path) => (
             <Link key={path.name} href={path.link}>
               <div
+                className={navStyles.navLink}
                 style={{
                   borderBottom: currentPath === path.link && "1px solid white",
                   cursor: "pointer",
@@ -52,9 +53,9 @@ export default function Nav() {
         </div>
       </div>
       <div
-        className={`${navStyles.navColumn} ${navStyles.wide} ${
-          isHome ? navStyles.home : ""
-        }`}
+        className={`${navStyles.navColumn} ${navStyles.navColumn3} ${
+          navStyles.wide
+        } ${isHome ? navStyles.home : ""}`}
       >
         {/* TODO: Better reducer for user and regisration state*/}
         <div className={navStyles.navButtons}>
