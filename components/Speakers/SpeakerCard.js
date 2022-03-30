@@ -6,7 +6,7 @@ export default function SpeakerCard({ speaker }) {
   const { observe, inView } = useInView({
     onEnter: ({ unobserve }) => unobserve(), // only run once
   });
-  console.log(inView);
+  console.log(speaker);
   return (
     <Link href={`/speaker/${speaker.name.toLowerCase().replace(/ /g, "-")}`}>
       <div className={cardStyles.card} ref={observe}>

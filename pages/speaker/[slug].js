@@ -42,10 +42,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const speaker = await c.getSpeakerBySlug(params.name);
+  const speaker = await c.getSpeakerBySlug(params.slug);
   return {
     props: {
-      speaker: speaker[0] ?? {},
+      speaker: speaker[0] ?? null,
     },
   };
 }
