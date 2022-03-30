@@ -61,6 +61,7 @@ const useApi = () => {
         const then = new Date();
         dispatch({ type: FETCHING });
         const response = await postData(data, route);
+        console.log(response);
         const now = new Date() - then;
         const delay = MIN_FETCHING_TIME_MS - now;
         const isDelayNegative = delay < 0;

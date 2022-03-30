@@ -3,10 +3,11 @@ import Iron from "@hapi/iron";
 import CookieService from "../../lib/cookie";
 
 export default async function handler(req, res) {
-  const { email } = req.query;
-
+  // const { email } = req.query;
+  const email = "undefined";
   let registration;
   try {
+    console.log("there is cookie");
     registration = await Iron.unseal(
       CookieService.getRegisteredToken(req.cookies),
       process.env.ENCRYPTION_SECRET,
@@ -15,10 +16,11 @@ export default async function handler(req, res) {
   } catch (err) {
     console.log("no register cookie");
   }
-
+  console.log(registration, "WHERE IS REGISTER");
   // If there is a cookie, no need to go to DB
   // Will this have side effects?
   if (registration) {
+    // return res.end();
     return res.json(registration);
   }
   if (email !== "undefined") {

@@ -1,6 +1,10 @@
 import { format } from "date-fns";
 import styles from "../../styles/ScheduleItem.module.css";
 import { useEffect, useState } from "react";
+import { BLOCKS, MARKS } from "@contentful/rich-text-types";
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import Separator from "../Separator";
+import useAuth from "../../hooks/useAuth";
 
 const scheduleRequest = (slug, method) =>
   fetch("/api/schedule-register", {
@@ -17,8 +21,8 @@ export default function ScheduleItem({
   registration = null,
   mutate,
 }) {
+  const [seeMore, setSeeMore] = useState(false);
   const [isRegistered, setIsRegistered] = useState(false);
-
   useEffect(() => {
     if (attendees) {
       setIsRegistered(
@@ -26,8 +30,11 @@ export default function ScheduleItem({
       );
     }
   }, [attendees]);
-
   const time = new Date(item.time);
+  let timeEnd = time;
+  if (item.timeEnd) {
+    timeEnd = new Date(item.timeEnd);
+  }
   const register = () => {
     scheduleRequest(item.slug, "put").then(() => {
       mutate("/api/get-schedule");
@@ -39,22 +46,73 @@ export default function ScheduleItem({
       mutate("/api/get-schedule");
     });
   };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (window.innerWidth > 640) {
+        setSeeMore(true);
+      }
+    }
+  }, []);
   // console.log(attendees);
   // const isRegistered =
   //   registration && attendees && attendees.includes(registration.email);
-
+  // const options = {
+  //   renderMark: {
+  //     [MARKS.BOLD]: (text) => `<custom-bold>${text}<custom-bold>`,
+  //   },
+  //   renderNode: {
+  //     [BLOCKS.PARAGRAPH]: (node, next) =>
+  //       `<custom-paragraph>${next(node.content)}</custom-paragraph>`,
+  //   },
+  // };
+  const desc = item.desc.content[0].content[0].value.slice(0, 100);
+  // const desc = item.desc.slice(0, 5);
   return (
     // <Link href={`/schedule/${item.slug}`}>
-    <div style={{ background: isRegistered ? "black" : "red" }}>
+    <div style={{ background: isRegistered ? "" : "", marginBottom: 20 }}>
       <div>
-        <div className={styles.time}>{format(time, "h:mmbb")}</div>
-        <div className={styles.title}>{item.title}</div>
-        <div className={styles.description}>{item.description}</div>
+        <div className={styles.title}>
+          {item.title}{" "}
+          {isRegistered ? (
+            <span className="littleText">(You are attending this)</span>
+          ) : (
+            ""
+          )}
+        </div>
+        <div className={styles.time}>
+          {format(time, "h:mmaaaaa'm'")} - {format(timeEnd, "h:mmaaaaa'm'")}
+        </div>
+
+        <div
+          className={styles.description}
+          dangerouslySetInnerHTML={{
+            __html: !seeMore
+              ? `<p>${desc}...</p>`
+              : documentToHtmlString(item.desc),
+          }}
+        ></div>
+        <button className="linkButton" onClick={() => setSeeMore(!seeMore)}>
+          {seeMore ? "See less" : "See more info"}
+        </button>
+        <div style={{ marginTop: 20 }}>
+          {registration && !isRegistered && (
+            <button className="smallButton" onClick={register}>
+              I will attend!
+            </button>
+          )}
+          {isRegistered && (
+            <button
+              className="smallButton"
+              style={{ background: "red" }}
+              onClick={remove}
+            >
+              I won't attend this one
+            </button>
+          )}
+        </div>
       </div>
-      <div>
-        {!isRegistered && <button onClick={register}>register</button>}
-        {isRegistered && <button onClick={remove}>remove</button>}
-      </div>
+      <Separator />
     </div>
     // </Link>
   );
