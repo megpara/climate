@@ -1,5 +1,5 @@
 // default
-let defaultView = "2";
+let defaultView = "1";
 export default function useView(views, step) {
   let currentView;
   if (step) {

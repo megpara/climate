@@ -18,7 +18,7 @@ export default function Speaker({ speaker }) {
           name="description"
           content={`${speaker.name} is a speaker at The West Coast Climate Crisis Symposium`}
         />
-        <meta property="og:image" content={speaker.photoUrl} />
+        <meta property="og:image" content={`https:${speaker.photoUrl}`} />
       </Head>
       <div className={styles.container}>
         <SpeakerCard speaker={speaker} />
@@ -42,10 +42,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const speaker = await c.getSpeakerBySlug(params.name);
+  const speaker = await c.getSpeakerBySlug(params.slug);
   return {
     props: {
-      speaker: speaker[0] ?? {},
+      speaker: speaker[0] ?? null,
     },
   };
 }

@@ -24,7 +24,7 @@ const views = {
 
 export default function Register({ schedule }) {
   const { mutate, attendees } = useAttendees();
-  const { user, registration } = useAuth();
+  const { user, registration, registerMutate } = useAuth();
   const router = useRouter();
   const view = useView(views, router.query.step);
   const api = useApi();
@@ -35,6 +35,7 @@ export default function Register({ schedule }) {
         ? { ...values, publicAddress: user.publicAddress }
         : values;
     await api.post(data, endpoints.climateRegister);
+    registerMutate();
     router.push("/register/2");
   };
 
@@ -43,6 +44,7 @@ export default function Register({ schedule }) {
   if (!schedule) {
     return <ErrorPage status={404} />;
   }
+  console.log(registration, "register");
   return (
     <PageLayout>
       <Head>
@@ -53,7 +55,7 @@ export default function Register({ schedule }) {
         />
       </Head>
       {isRegistered ? (
-        <h3 className={styles.message}>You are already registered</h3>
+        <h3 className={styles.message}>You are registered</h3>
       ) : (
         ""
       )}
@@ -66,12 +68,17 @@ export default function Register({ schedule }) {
         />
       )}
       {view.schedule && (
-        <Schedule
-          schedule={schedule}
-          registration={registration}
-          mutate={mutate}
-          attendees={attendees}
-        />
+        <>
+          <div className="text-block">
+            Pick items from the schedule you would like to attend
+          </div>
+          <Schedule
+            schedule={schedule}
+            registration={registration}
+            mutate={mutate}
+            attendees={attendees}
+          />
+        </>
       )}
       {view.success && <RegisterSuccess />}
     </PageLayout>

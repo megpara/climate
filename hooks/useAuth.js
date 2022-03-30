@@ -9,8 +9,12 @@ function fetcher(route) {
 
 export default function useAuth() {
   const { data: user, error, mutate } = useSWR("/api/user", fetcher);
-  const { data: registration } = useSWR(
-    `/api/get-registration?email=${user && user.email}`,
+  // const { data: registration, mutate: registerMutate } = useSWR(
+  //   `/api/get-registration?email=${user && user.email}`,
+  //   fetcher
+  // );
+  const { data: registration, mutate: registerMutate } = useSWR(
+    `/api/get-registration`,
     fetcher
   );
   const loading = user === undefined;
@@ -20,5 +24,6 @@ export default function useAuth() {
     loading,
     error,
     mutate,
+    registerMutate,
   };
 }

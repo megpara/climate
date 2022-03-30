@@ -28,8 +28,9 @@ export default async function handler(req, res) {
         console.log("Error", err);
       } else {
         console.log("Success", data);
-        res.json({ success: true, message: "registration_success" }).end();
+        res.json({ success: true, message: "registration_success" });
       }
+      // res.end();
       resolve();
     });
   });

@@ -3,6 +3,7 @@ import DayHeader from "./DayHeader";
 import ScheduleItem from "./Item";
 
 import styles from "../../styles/Schedule.module.css";
+import Separator from "../Separator";
 
 export default function Schedule({
   schedule,
@@ -22,7 +23,12 @@ export default function Schedule({
           prevDay = day;
           return (
             <div key={item.title}>
-              {showDay && <DayHeader day={day} />}
+              {showDay && (
+                <>
+                  <DayHeader day={day} />
+                  <Separator marginBottom={20} />
+                </>
+              )}
               <ScheduleItem
                 item={item}
                 attendees={attendees[item.slug]}

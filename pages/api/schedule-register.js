@@ -29,7 +29,6 @@ export default async function handler(req, res) {
       },
     },
   };
-  console.log(params);
 
   return new Promise((resolve, _) => {
     ddb.updateItem(params, function (err, data) {

@@ -11,6 +11,7 @@
   --padding-sm: 6px;
   --orange: #ff470f;
   --green: #02838a;
+  --lime: #7aff35;
 }
 html,
 body {
@@ -52,14 +53,44 @@ a {
   cursor: pointer;
   display: block;
 }
-.mainButton:hover {
+button:hover {
   background: #ff470fcf;
+}
+
+.smallButton {
+  background: #ff470f;
+  border: 2px solid white;
+  /* width: 200px; */
+  color: white;
+  padding: 10px 14px;
+  font-size: 1rem;
+  /* border-radius: 30px; */
+  letter-spacing: 1px;
+  font-weight: 600;
+  /* margin: auto; */
+  font-family: var(--secondary-font-family);
+  cursor: pointer;
+  display: block;
+}
+
+.linkButton {
+  background: none;
+  border: none;
+  color: #55fff9;
+  text-decoration: underline;
+  font-size: 1.2rem;
+  padding: 0;
 }
 
 .text-block {
   font-size: 1.5rem;
   margin: 10px;
   color: white;
+}
+
+.littleText {
+  font-size: 1rem;
+  color: var(--lime);
 }
 
 h3 {
