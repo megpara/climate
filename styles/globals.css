@@ -38,6 +38,10 @@ a {
   box-sizing: border-box;
 }
 
+button {
+  cursor: pointer;
+}
+
 .mainButton {
   background: #ff470f;
   border: 2px solid white;
@@ -53,8 +57,10 @@ a {
   cursor: pointer;
   display: block;
 }
-button:hover {
-  background: #ff470fcf;
+@media (hover: hover) and (pointer: fine) {
+  button:hover {
+    background: #ff470fcf;
+  }
 }
 
 .smallButton {

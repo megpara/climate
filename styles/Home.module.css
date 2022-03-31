@@ -186,8 +186,10 @@
   cursor: pointer;
   display: block;
 }
-.mainButton:hover {
-  background: #ff470fcf;
+@media (hover: hover) and (pointer: fine) {
+  .mainButton:hover {
+    background: #ff470fcf;
+  }
 }
 .footerLogoDiv {
   display: flex;
