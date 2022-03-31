@@ -5,6 +5,7 @@ import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import Separator from "../Separator";
 import useAuth from "../../hooks/useAuth";
+import { CONTENTFUL_NULL_FIELD } from "../../lib/constants";
 
 const scheduleRequest = (slug, method) =>
   fetch("/api/schedule-register", {
@@ -84,17 +85,21 @@ export default function ScheduleItem({
           {format(time, "h:mmaaaaa'm'")} - {format(timeEnd, "h:mmaaaaa'm'")}
         </div>
 
-        <div
-          className={styles.description}
-          dangerouslySetInnerHTML={{
-            __html: !seeMore
-              ? `<p>${desc}...</p>`
-              : documentToHtmlString(item.desc),
-          }}
-        ></div>
-        <button className="linkButton" onClick={() => setSeeMore(!seeMore)}>
-          {seeMore ? "See less" : "See more info"}
-        </button>
+        {desc !== CONTENTFUL_NULL_FIELD && (
+          <div
+            className={styles.description}
+            dangerouslySetInnerHTML={{
+              __html: !seeMore
+                ? `<p>${desc}...</p>`
+                : documentToHtmlString(item.desc),
+            }}
+          ></div>
+        )}
+        {desc !== CONTENTFUL_NULL_FIELD && (
+          <button className="linkButton" onClick={() => setSeeMore(!seeMore)}>
+            {seeMore ? "See less" : "See more info"}
+          </button>
+        )}
         <div style={{ marginTop: 20 }}>
           {registration && !isRegistered && (
             <button className="smallButton" onClick={register}>
