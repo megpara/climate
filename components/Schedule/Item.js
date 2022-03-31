@@ -67,7 +67,8 @@ export default function ScheduleItem({
   //       `<custom-paragraph>${next(node.content)}</custom-paragraph>`,
   //   },
   // };
-  const desc = item.desc.content[0].content[0].value.slice(0, 100);
+  const itemDesc = item.desc.content[0].content[0].value;
+  const desc = itemDesc.length > 100 ? itemDesc.slice(0, 100) : itemDesc;
   // const desc = item.desc.slice(0, 5);
   return (
     // <Link href={`/schedule/${item.slug}`}>
