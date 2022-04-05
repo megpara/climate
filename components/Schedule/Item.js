@@ -6,6 +6,8 @@ import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import Separator from "../Separator";
 import useAuth from "../../hooks/useAuth";
 import { CONTENTFUL_NULL_FIELD } from "../../lib/constants";
+import Checkmark from "../Icons/Checkmark";
+import Person from "../Icons/Person";
 
 const scheduleRequest = (slug, method) =>
   fetch("/api/schedule-register", {
@@ -24,11 +26,13 @@ export default function ScheduleItem({
 }) {
   const [seeMore, setSeeMore] = useState(false);
   const [isRegistered, setIsRegistered] = useState(false);
+  const [numberOfAttendees, setNumberOfAttendees] = useState(0);
   useEffect(() => {
     if (attendees) {
       setIsRegistered(
         registration && attendees && attendees.includes(registration.email)
       );
+      setNumberOfAttendees(attendees.length);
     }
   }, [attendees]);
   const time = new Date(item.time);
@@ -55,9 +59,6 @@ export default function ScheduleItem({
       }
     }
   }, []);
-  // console.log(attendees);
-  // const isRegistered =
-  //   registration && attendees && attendees.includes(registration.email);
   // const options = {
   //   renderMark: {
   //     [MARKS.BOLD]: (text) => `<custom-bold>${text}<custom-bold>`,
@@ -69,19 +70,45 @@ export default function ScheduleItem({
   // };
   const itemDesc = item.desc.content[0].content[0].value;
   const desc = itemDesc.length > 100 ? itemDesc.slice(0, 100) : itemDesc;
-  // const desc = item.desc.slice(0, 5);
   return (
     // <Link href={`/schedule/${item.slug}`}>
-    <div style={{ background: isRegistered ? "" : "", marginBottom: 20 }}>
+    <div
+      style={{
+        backgroundColor: isRegistered ? "" : "",
+        marginBottom: 20,
+      }}
+    >
       <div>
-        <div className={styles.title}>
+        {isRegistered ? (
+          <div
+            className="littleText"
+            style={{
+              color: isRegistered ? "var(--lime)" : "white",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              width: 220,
+              fontWeight: "bold",
+            }}
+          >
+            <Checkmark color="var(--lime)" />
+            You are attending this!
+          </div>
+        ) : (
+          ""
+        )}
+        <div style={{}} className={styles.title}>
           {item.title}{" "}
-          {isRegistered ? (
+          {/* {isRegistered ? (
             <span className="littleText">(You are attending this)</span>
           ) : (
             ""
-          )}
+          )} */}
         </div>
+        <div className="flex items-center" style={{ marginTop: 2 }}>
+          Attendance: {numberOfAttendees} <Person style={{ marginLeft: 4 }} />
+        </div>
+
         <div className={styles.time}>
           {format(time, "h:mmaaaaa'm'")} - {format(timeEnd, "h:mmaaaaa'm'")}
         </div>
@@ -108,12 +135,8 @@ export default function ScheduleItem({
             </button>
           )}
           {isRegistered && (
-            <button
-              className="smallButton"
-              style={{ background: "red" }}
-              onClick={remove}
-            >
-              I won't attend this one
+            <button className="smallButton remove" onClick={remove}>
+              Remove from my schedule
             </button>
           )}
         </div>

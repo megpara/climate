@@ -36,6 +36,7 @@ export default function Register({ schedule }) {
         : values;
     await api.post(data, endpoints.climateRegister);
     registerMutate();
+    mutate();
     router.push("/register/2");
   };
 
@@ -45,6 +46,7 @@ export default function Register({ schedule }) {
     return <ErrorPage status={404} />;
   }
   console.log(registration, "register");
+  console.log(attendees);
   return (
     <PageLayout>
       <Head>
@@ -54,7 +56,7 @@ export default function Register({ schedule }) {
           content="Register for The West Coast Climate Crisis Symposium"
         />
       </Head>
-      {isRegistered ? (
+      {isRegistered && view.registerForm ? (
         <h3 className={styles.message}>You are registered</h3>
       ) : (
         ""

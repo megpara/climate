@@ -29,6 +29,19 @@ body {
   width: 100%;
   height: 100%;
 }
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -59,24 +72,29 @@ button {
 }
 @media (hover: hover) and (pointer: fine) {
   button:hover {
-    background: #ff470fcf;
+    /* background: #ff470fcf; */
   }
 }
 
 .smallButton {
-  background: #ff470f;
-  border: 2px solid white;
+  background: white;
+  border: 2px solid var(--orange);
   /* width: 200px; */
-  color: white;
+  color: var(--orange);
   padding: 10px 14px;
   font-size: 1rem;
-  /* border-radius: 30px; */
+  border-radius: 30px;
   letter-spacing: 1px;
   font-weight: 600;
   /* margin: auto; */
   font-family: var(--secondary-font-family);
   cursor: pointer;
   display: block;
+}
+
+button.remove {
+  background-color: red;
+  color: white;
 }
 
 .linkButton {
@@ -97,6 +115,8 @@ button {
 .littleText {
   font-size: 1rem;
   color: var(--lime);
+  color: white;
+  cursor: pointer;
 }
 
 h3 {

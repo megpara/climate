@@ -19,6 +19,7 @@ export default function useAttendees() {
     error,
     mutate,
   } = useSWR("/api/get-schedule", fetcher);
+
   return {
     attendees,
     error,
