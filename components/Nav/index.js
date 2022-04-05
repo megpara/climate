@@ -59,7 +59,7 @@ export default function Nav() {
       >
         {/* TODO: Better reducer for user and regisration state*/}
         <div className={navStyles.navButtons}>
-          {/* {!user && (
+          {!user && (
             <>
               <div className={navStyles.primaryButton}>
                 <Link href="/register">Register</Link>
@@ -78,7 +78,7 @@ export default function Nav() {
                 <Link href="/login">Profile</Link>
               </div>
             </>
-          )} */}
+          )}
         </div>
       </div>
       <div className={navStyles.bottomNav}>

@@ -3,7 +3,7 @@ export default function Separator({ marginBottom = 0 }) {
     <div
       style={{
         width: "100%",
-        height: 20,
+        height: 10,
         background: "white",
         marginTop: 20,
         marginBottom,

@@ -36,6 +36,11 @@
   }
   .navColumn3 {
     flex: 0 0 100%;
+    margin-top: -20px;
+  }
+
+  .navColumn3.home {
+    margin-top: 0px;
   }
 }
 
@@ -51,7 +56,7 @@
   /* or just take this out of the nav it is home */
   .navColumn.home {
     position: absolute;
-    top: 100px;
+    top: 120px;
     right: 10px;
   }
 
@@ -59,8 +64,13 @@
     display: none;
   }
 
+  /* Login and Register buttons */
   .navColumn:nth-of-type(3) {
+    margin-top: 0px;
     justify-content: space-around;
+    align-self: end;
+    justify-self: end;
+    flex: 0 0 65%;
   }
 }
 

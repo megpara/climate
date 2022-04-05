@@ -17,6 +17,7 @@ export default function useAuth() {
     `/api/get-registration`,
     fetcher
   );
+  console.log(registration);
   const loading = user === undefined;
   return {
     user,
