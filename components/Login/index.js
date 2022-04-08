@@ -16,7 +16,7 @@ const ButtonText = {
 };
 
 export default function Login({ schedule }) {
-  const { user, loading, registration, registerMutate } = useAuth();
+  const { user, loading, registration } = useAuth();
   const { attendees, mutate } = useAttendees();
   const [buttonText, setButtonText] = useState(ButtonText.Login);
   const [userSchedule, setUserSchedule] = useState([]);
