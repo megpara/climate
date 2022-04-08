@@ -19,6 +19,7 @@ export default async function handler(req, res) {
   // Will this have side effects?
   if (registration) {
     // return res.end();
+    console.log("sending back register");
     return res.json(registration);
   }
 
@@ -31,12 +32,14 @@ export default async function handler(req, res) {
       Iron.defaults
     );
   } catch (error) {
+    console.log(error);
     res.status(401).end();
   }
+  console.log("no user?");
   if (!user) {
     res.status(401).end();
   }
-  console.log(user);
+  console.log("REGISTER ", user);
   // if (email !== "undefined") {
   var params = {
     Key: {
@@ -49,7 +52,7 @@ export default async function handler(req, res) {
   return new Promise((resolve, _) => {
     ddb.getItem(params, async function (err, data) {
       // console.log(data.email);
-      if (err || data.email === undefined) {
+      if (err || data.Item.email === undefined) {
         return res.status(404).end();
       }
       const { Item } = data;
@@ -61,7 +64,7 @@ export default async function handler(req, res) {
         process.env.ENCRYPTION_SECRET,
         Iron.defaults
       );
-
+      console.log("setting register cookie");
       CookieService.setRegisterTokenCookie(res, token);
       res.json(registration);
       resolve();

@@ -72,7 +72,8 @@ export default function Register({ schedule }) {
       {view.schedule && (
         <>
           <div className="text-block">
-            Pick items from the schedule you would like to attend
+            You are registered! Now pick items from the schedule you would like
+            to attend
           </div>
           <Schedule
             schedule={schedule}

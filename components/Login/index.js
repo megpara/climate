@@ -41,6 +41,11 @@ export default function Login({ schedule }) {
       setButtonText(ButtonText.Success);
       mutate("/api/user");
       mutate("/api/get-registration");
+      setTimeout(() => {
+        if (typeof window !== "undefined") {
+          window.location.reload();
+        }
+      }, 1000);
     }
   };
   const logout = async () => {

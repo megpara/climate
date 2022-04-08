@@ -13,13 +13,22 @@ export default function LoginForm({ submit, buttonText }) {
   return (
     // Convenient Form that includes Submit button and basic container styling
     // For more customization-- use the Formik pattern inside
-    <Form
-      initialValues={initialValues}
-      submit={submit}
-      buttonText={buttonText}
-      schema={LoginSchema}
-    >
-      <FieldItem data={fields.email} />
-    </Form>
+    <div>
+      <div className="text-block" style={{ textAlign: "center" }}>
+        If you registered on a different computer, you can login here to view
+        your schedule
+      </div>
+      <Form
+        initialValues={initialValues}
+        submit={submit}
+        buttonText={buttonText}
+        schema={LoginSchema}
+      >
+        <FieldItem data={fields.email} />
+      </Form>
+      <div className="text-block" style={{ textAlign: "center" }}>
+        After clicking Login, please check your email for a verification link
+      </div>
+    </div>
   );
 }
