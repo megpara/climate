@@ -30,7 +30,11 @@ export default function Login({ schedule }) {
       redirectURI:
         process.env.NODE_ENV === "development"
           ? "http://localhost:3000/callback"
-          : "https://westcoastclimatecrisis.org/callback",
+          : `https://${
+              typeof window !== "undefined"
+                ? window.location.host
+                : "westcoastclimatecrisis.org"
+            }/callback`,
     });
     const authRequest = await fetch("/api/login", {
       method: "POST",
