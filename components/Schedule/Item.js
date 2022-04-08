@@ -8,7 +8,8 @@ import useAuth from "../../hooks/useAuth";
 import { CONTENTFUL_NULL_FIELD } from "../../lib/constants";
 import Checkmark from "../Icons/Checkmark";
 import Person from "../Icons/Person";
-
+import Spinner from "../Animations/Spinner";
+import { motion } from "framer-motion";
 const scheduleRequest = (slug, method) =>
   fetch("/api/schedule-register", {
     method,
@@ -27,6 +28,7 @@ export default function ScheduleItem({
   const [seeMore, setSeeMore] = useState(false);
   const [isRegistered, setIsRegistered] = useState(false);
   const [numberOfAttendees, setNumberOfAttendees] = useState(0);
+  const [fetching, setFetching] = useState(false);
   useEffect(() => {
     if (attendees) {
       setIsRegistered(
@@ -41,14 +43,18 @@ export default function ScheduleItem({
     timeEnd = new Date(item.timeEnd);
   }
   const register = () => {
+    setFetching(true);
     scheduleRequest(item.slug, "put").then(() => {
       mutate("/api/get-schedule");
+      setFetching(false);
     });
   };
 
   const remove = () => {
+    setFetching(true);
     scheduleRequest(item.slug, "delete").then(() => {
       mutate("/api/get-schedule");
+      setFetching(false);
     });
   };
 
@@ -130,14 +136,23 @@ export default function ScheduleItem({
         )}
         <div style={{ marginTop: 20 }}>
           {registration && !isRegistered && (
-            <button className="smallButton" onClick={register}>
-              I will attend!
-            </button>
+            <motion.button
+              layout
+              disabled={fetching}
+              className="smallButton"
+              onClick={register}
+            >
+              {fetching ? <Spinner /> : "I will attend!"}
+            </motion.button>
           )}
           {isRegistered && (
-            <button className="smallButton remove" onClick={remove}>
-              Remove from my schedule
-            </button>
+            <motion.button
+              disabled={fetching}
+              className="smallButton remove"
+              onClick={remove}
+            >
+              {fetching ? <Spinner /> : "Remove from my schedule"}
+            </motion.button>
           )}
         </div>
       </div>
