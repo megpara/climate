@@ -16,7 +16,7 @@ const ButtonText = {
 };
 
 export default function Login({ schedule }) {
-  const { user, loading, registration, registerMutate } = useAuth();
+  const { user, loading, registration } = useAuth();
   const { attendees, mutate } = useAttendees();
   const [buttonText, setButtonText] = useState(ButtonText.Login);
   const [userSchedule, setUserSchedule] = useState([]);
@@ -30,7 +30,11 @@ export default function Login({ schedule }) {
       redirectURI:
         process.env.NODE_ENV === "development"
           ? "http://localhost:3000/callback"
-          : "https://westcoastclimatecrisis.org/callback",
+          : `https://${
+              typeof window !== "undefined"
+                ? window.location.host
+                : "westcoastclimatecrisis.org"
+            }/callback`,
     });
     const authRequest = await fetch("/api/login", {
       method: "POST",
