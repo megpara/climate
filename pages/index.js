@@ -3,6 +3,7 @@ import { forwardRef, useEffect, useRef, useState } from "react";
 import Column from "../components/Column.js";
 import EmailSignup from "../components/EmailSignup/index.js";
 import Layout from "../components/Layout.js";
+import { donationButtonHtml } from "../constants.js";
 import styles from "../styles/Home.module.css";
 
 const columns = [
@@ -94,6 +95,7 @@ const Hero = forwardRef((_, sunsetRef) => {
               A day-long conference about the crucial role of science
               journalists in offering solutions to the climate crisis
             </div>
+            <div dangerouslySetInnerHTML={{ __html: donationButtonHtml }} />
           </div>
         </div>
         <AnimatePresence>

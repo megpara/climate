@@ -9,6 +9,7 @@ const keys = [
   "lastName",
   "email",
   { name: "phone", label: "Phone Number" },
+  { name: "affiliation", label: "Affiliation / Job title" },
 ];
 
 export default function RegisterForm({
@@ -40,6 +41,7 @@ export default function RegisterForm({
       <FieldItem data={fields.lastName} />
       <FieldItem data={fields.email} />
       <FieldItem data={fields.phone} />
+      <FieldItem data={fields.affiliation} />
     </Form>
   );
 }
