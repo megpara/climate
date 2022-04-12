@@ -92,7 +92,7 @@ const Hero = forwardRef((_, sunsetRef) => {
             </div>
             <div
               className={styles.subtitle}
-              style={{ fontWeight: 500, fontSize: "1.4rem", width: "90%" }}
+              style={{ fontWeight: 500, fontSize: "1rem", width: "90%" }}
             >
               The IPCC Warns the World Will Become 'Unlivable' - But No One is
               Paying Attention. How Can We Break Through the Logjam of Denial
@@ -100,7 +100,6 @@ const Hero = forwardRef((_, sunsetRef) => {
               crucial role of journalists in offering solutions to the climate
               crisis
             </div>
-            <div dangerouslySetInnerHTML={{ __html: donationButtonHtml }} />
           </div>
         </div>
         <AnimatePresence>
