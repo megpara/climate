@@ -56,7 +56,7 @@
   /* or just take this out of the nav it is home */
   .navColumn.home {
     position: absolute;
-    top: 120px;
+    top: 140px;
     right: 10px;
   }
 
