@@ -54,10 +54,13 @@
 
   /* currently this is just moving the login and register button on the home page */
   /* or just take this out of the nav it is home */
+
+  /* 4/11 - currently hiding them on mobile because home is crowded */
   .navColumn.home {
     position: absolute;
-    top: 140px;
+    bottom: 140px;
     right: 10px;
+    display: none;
   }
 
   .navColumn:nth-of-type(2) {
