@@ -75,15 +75,14 @@ const Hero = forwardRef((_, sunsetRef) => {
       <div className={styles.backgroundImage2} ref={sunsetRef} />
       <div className={styles.mainContainer}>
         <div className={styles.eventDetails}>
-          <div style={{ width: 80, marginRight: 20 }}>
+          <div className={styles.logoContainer}>
             <img style={{ width: "100%" }} src={"wire.png"} />
           </div>
           <div>
-            <div className={styles.boldSubtitle}>Save the Date</div>
-            <div className={styles.detail}>
-              A Hybrid Virtual/In-Person Event
-            </div>
-            <div className={styles.detail}>UCLA/Los Angeles. June 4th 2022</div>
+            {/* <div className={styles.boldSubtitle}>Save the Date</div> */}
+            <div className={styles.boldSubtitle}>A Virtual/In-Person Event</div>
+            <div className={styles.boldSubtitle}>UCLA Ackerman Union</div>
+            <div className={styles.boldSubtitle}>June 4th 2022</div>
           </div>
         </div>
         <div className={styles.centerFlex}>
@@ -91,9 +90,15 @@ const Hero = forwardRef((_, sunsetRef) => {
             <div className={styles.title}>
               The West Coast Climate Crisis Symposium
             </div>
-            <div className={styles.subtitle}>
-              A day-long conference about the crucial role of science
-              journalists in offering solutions to the climate crisis
+            <div
+              className={styles.subtitle}
+              style={{ fontWeight: 500, fontSize: "1.4rem", width: "90%" }}
+            >
+              The IPCC Warns the World Will Become 'Unlivable' - But No One is
+              Paying Attention. How Can We Break Through the Logjam of Denial
+              and Disinformation? This day long conference will talk about the
+              crucial role of journalists in offering solutions to the climate
+              crisis
             </div>
             <div dangerouslySetInnerHTML={{ __html: donationButtonHtml }} />
           </div>
