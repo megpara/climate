@@ -23,7 +23,7 @@
 
 /* Line break top nav when it starts to crowd logo for iPad-ish */
 /* only on home screen */
-@media screen and (max-width: 1060px) {
+@media screen and (max-width: 1260px) {
   .home.navItems {
     justify-content: end;
     padding-bottom: 20px;
@@ -148,5 +148,11 @@
   }
   .primaryButton {
     margin-right: 0px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .isRegistering {
+    display: none;
   }
 }

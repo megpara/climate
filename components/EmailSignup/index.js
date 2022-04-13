@@ -47,22 +47,6 @@ export default function EmailSignup() {
           {api.state.fetching ? <Spinner /> : api.state.buttonText}
         </motion.button>
         <div className={styles.errorMessage}>{api.state.error}</div>
-        <div className={homeStyles.boldSubtitle}>Login or Register</div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            width: "90%",
-            marginTop: 10,
-          }}
-        >
-          <button style={{ flex: "0 0 45%" }} className={homeStyles.mainButton}>
-            Login
-          </button>
-          <button style={{ flex: "0 0 45%" }} className={homeStyles.mainButton}>
-            Register
-          </button>
-        </div>
       </motion.div>
     </div>
   );

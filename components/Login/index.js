@@ -68,7 +68,7 @@ export default function Login({ schedule }) {
   }, [user, attendees]);
   return (
     <PageLayout>
-      <div style={{ maxWidth: 350, margin: "auto" }}>
+      <div style={{ maxWidth: 350, margin: "auto", fontWeight: "bold" }}>
         {!user && <LoginForm buttonText={buttonText} submit={login} />}
         {!loading && user && user.email && (
           <>

@@ -1,6 +1,7 @@
 import Head from "next/head";
 import useApi from "../../hooks/useApi";
 import RegisterForm from "../../components/Register/Form";
+import Schedule from "../../components/Register/Schedule";
 import { endpoints } from "../../lib/constants";
 import { useRouter } from "next/router";
 import useAuth from "../../hooks/useAuth";
@@ -11,10 +12,10 @@ import PageLayout from "../../components/PageLayout";
 import styles from "../../styles/Register.module.css";
 import { useEffect } from "react";
 import Contentful from "../../lib/contentful";
-import Schedule from "../../components/Schedule";
 import useAttendees from "../../hooks/useAttendees";
 
 import ErrorPage from "next/error";
+import useScrolled from "../../hooks/useScrolled";
 
 const views = {
   registerForm: "1",
@@ -29,6 +30,8 @@ export default function Register({ schedule }) {
   const view = useView(views, router.query.step);
   const api = useApi();
 
+  const scrolled = useScrolled(20);
+
   const submit = async (values) => {
     const data =
       user && user.publicAddress
@@ -42,11 +45,10 @@ export default function Register({ schedule }) {
 
   const isRegistered = Boolean(registration);
   // Jank
-  if (!schedule) {
-    return <ErrorPage status={404} />;
-  }
-  console.log(registration, "register");
-  console.log(attendees);
+  // if (!schedule) {
+  //   return <ErrorPage status={404} />;
+  // }
+
   return (
     <PageLayout>
       <Head>
@@ -69,19 +71,13 @@ export default function Register({ schedule }) {
           registration={registration}
         />
       )}
-      {view.schedule && (
-        <>
-          <div className="text-block">
-            You are registered! Now pick items from the schedule you would like
-            to attend
-          </div>
-          <Schedule
-            schedule={schedule}
-            registration={registration}
-            mutate={mutate}
-            attendees={attendees}
-          />
-        </>
+      {schedule && view.schedule && (
+        <Schedule
+          schedule={schedule}
+          registration={registration}
+          mutate={mutate}
+          attendees={attendees}
+        />
       )}
       {view.success && <RegisterSuccess />}
     </PageLayout>

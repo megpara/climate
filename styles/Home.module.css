@@ -37,7 +37,7 @@
 .logoContainer {
   width: 96px;
   margin-top: 8px;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 @media screen and (max-width: 768px) {
@@ -98,10 +98,12 @@
 }
 .subtitle {
   color: white;
-  font-weight: 400;
+  font-weight: 500;
   font-size: var(--subtitle-font-size);
   margin: 20px 0;
-  max-width: 500px;
+  max-width: 600px;
+  font-size: 1.3rem;
+  width: 90%;
 }
 .scrollContainer {
   position: absolute;
