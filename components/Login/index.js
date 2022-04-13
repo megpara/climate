@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Magic } from "magic-sdk";
-import { mutate } from "swr";
 import useAuth from "../../hooks/useAuth";
 import useAttendees from "../../hooks/useAttendees";
 import PageLayout from "../PageLayout";
