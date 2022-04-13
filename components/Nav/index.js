@@ -18,8 +18,11 @@ export default function Nav() {
 
   // Note: There is some home specific patching for layout
   const isHome = currentPath === "/";
+  const isRegistering = currentPath === "/register/2";
+  console.log(currentPath);
+  console.log(isRegistering);
   return (
-    <div className={navStyles.nav}>
+    <div className={`${navStyles.nav}`}>
       <div className={navStyles.navColumn}>
         <a href="/">
           <div style={{ width: 80, marginRight: 20 }}>
@@ -81,7 +84,11 @@ export default function Nav() {
           )}
         </div>
       </div>
-      <div className={navStyles.bottomNav}>
+      <div
+        className={`${navStyles.bottomNav} ${
+          isRegistering ? navStyles.isRegistering : ""
+        }`}
+      >
         {paths.map((path) => (
           <Link key={path.name} href={path.link}>
             <div

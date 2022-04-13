@@ -1,9 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { forwardRef, useEffect, useRef, useState } from "react";
+import { useRouter } from "next/router";
+import { forwardRef, useEffect, useRef } from "react";
 import Column from "../components/Column.js";
-import EmailSignup from "../components/EmailSignup/index.js";
+import DonateButton from "../components/DonateButton.js";
 import Layout from "../components/Layout.js";
-import { donationButtonHtml } from "../constants.js";
+import useScrolled from "../hooks/useScrolled.js";
 import styles from "../styles/Home.module.css";
 
 const columns = [
@@ -51,22 +52,7 @@ export default function Home() {
 }
 
 const Hero = forwardRef((_, sunsetRef) => {
-  const [scroll, setScroll] = useState(false);
-  useEffect(() => {
-    function onScroll() {
-      if (window.scrollY == 0) {
-        setScroll(false);
-      } else {
-        setScroll(true);
-      }
-    }
-    window.addEventListener("scroll", onScroll);
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
-  }, []);
-
+  const scroll = useScrolled();
   return (
     <div className={styles.backgroundContainer}>
       <div
@@ -90,10 +76,7 @@ const Hero = forwardRef((_, sunsetRef) => {
             <div className={styles.title}>
               The West Coast Climate Crisis Symposium
             </div>
-            <div
-              className={styles.subtitle}
-              style={{ fontWeight: 500, fontSize: "1rem", width: "90%" }}
-            >
+            <div className={styles.subtitle}>
               The IPCC Warns the World Will Become 'Unlivable' - But No One is
               Paying Attention. How Can We Break Through the Logjam of Denial
               and Disinformation? This day long conference will talk about the
@@ -121,6 +104,8 @@ const Hero = forwardRef((_, sunsetRef) => {
 });
 
 const Features = () => {
+  const router = useRouter();
+
   return (
     <div
       className={styles.backgroundContainer}
@@ -140,13 +125,38 @@ const Features = () => {
               return <Column key={column} points={column} />;
             })}
           </div>
-          <div className={styles.smallText}>
+          {/* <div className={styles.smallText}>
             Speakers and program to be announced
+          </div> */}
+        </div>
+      </div>
+      {/* <EmailSignup /> */}
+      <div className={styles.emailContainer}>
+        <div className={styles.emailDiv}>
+          <div className={styles.boldSubtitle}>
+            Registration is open
+            <br /> join us on June 4th at UCLA Ackerman Union!
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginTop: 20,
+            }}
+          >
+            <button
+              className={styles.mainButton}
+              style={{ fontSize: "1.5rem", fontWeight: "bold" }}
+              onClick={() => router.push("/register")}
+            >
+              Register
+            </button>
           </div>
         </div>
       </div>
-      <EmailSignup />
       <div className={styles.footer}>
+        <DonateButton />
+
         <div className={styles.footerImgContainer}>
           <div>
             <img style={{ width: "100%" }} src={"science_literary_logo.png"} />

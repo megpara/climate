@@ -18,7 +18,6 @@ export default function useAuth() {
     fetcher
   );
 
-  console.log(registration);
   const loading = user === undefined;
   return {
     user,
