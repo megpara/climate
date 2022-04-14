@@ -7,6 +7,7 @@ import LoginForm from "./Form";
 import Schedule from "../../components/Schedule";
 import { useEffect } from "react";
 import Link from "next/link";
+import { getHost } from "../../lib/utils";
 
 const ButtonText = {
   Login: "Login",
@@ -26,20 +27,12 @@ export default function Login({ schedule }) {
       process.env.NEXT_PUBLIC_MAGIC_PUB_KEY
     ).auth.loginWithMagicLink({
       email,
-      redirectURI:
-        process.env.NODE_ENV === "development"
-          ? "http://localhost:3000/callback"
-          : `https://${
-              typeof window !== "undefined"
-                ? window.location.host
-                : "westcoastclimatecrisis.org"
-            }/callback`,
+      redirectURI: `${getHost()}/callback`,
     });
     const authRequest = await fetch("/api/login", {
       method: "POST",
       headers: { Authorization: `Bearer ${did}` },
     });
-
     if (authRequest.ok) {
       setButtonText(ButtonText.Success);
       mutate("/api/user");
