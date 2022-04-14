@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useRef } from "react";
+import { getHost } from "../lib/utils";
 
 let counter = 0;
 
@@ -14,7 +15,7 @@ const DonateButton = () => {
       env: "production",
       hosted_button_id: "8SWHCCK77W33Y",
       image: {
-        src: "http://localhost:3000/donate_button.png",
+        src: `${getHost()}/donate_button.png`,
         alt: "Donate with PayPal button",
         title: "PayPal - The safer, easier way to pay online!",
       },
