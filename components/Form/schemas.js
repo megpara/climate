@@ -9,6 +9,8 @@ export const RegisterSchema = Yup.object().shape({
     .max(50, "Too Long!")
     .required("Required"),
   email: Yup.string().email("Invalid email").required("Required"),
+  affiliation: Yup.string().required("Required"),
+  phone: Yup.number().required("Required"),
 });
 
 export const LoginSchema = Yup.object().shape({

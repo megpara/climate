@@ -5,7 +5,14 @@ export default function Error({ name }) {
   return (
     <ErrorMessage
       name={name}
-      render={(msg) => <div className={formStyles.errorMessage}>{msg}</div>}
+      render={(msg) => {
+        let message = msg;
+        console.log(msg);
+        if (msg.includes("phone must be a")) {
+          message = "Phone number is invalid";
+        }
+        return <div className={formStyles.errorMessage}>{message}</div>;
+      }}
     />
   );
 }

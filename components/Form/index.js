@@ -19,6 +19,10 @@ export default function ({
       enableReinitialize
     >
       {(formik) => {
+        const errors = Object.keys(formik.errors).map(
+          (key) => formik.errors[key]
+        );
+        console.log(errors);
         return (
           <Form className={formStyles.form}>
             {children}
@@ -27,6 +31,11 @@ export default function ({
               isSubmitting={formik.isSubmitting}
               buttonText={buttonText}
             />
+            {errors.length > 0 && (
+              <div className={formStyles.errorMessage}>
+                Please fill out all fields
+              </div>
+            )}
           </Form>
         );
       }}
