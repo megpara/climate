@@ -19,8 +19,6 @@ export default function Nav() {
   // Note: There is some home specific patching for layout
   const isHome = currentPath === "/";
   const isRegistering = currentPath === "/register/2";
-  console.log(currentPath);
-  console.log(isRegistering);
   return (
     <div className={`${navStyles.nav}`}>
       <div className={navStyles.navColumn}>

@@ -13,7 +13,7 @@ export default function FieldItem({ data }) {
   return (
     <div className={formStyles.formItem}>
       <label className={formStyles.label} htmlFor={name}>
-        {label}
+        {label}*
       </label>
       <Field className={formStyles.input} id={name} name={name} />
       <Error name={name} />

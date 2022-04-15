@@ -32,7 +32,6 @@ export default async function handler(req, res) {
 
   return new Promise((resolve, _) => {
     ddb.updateItem(params, function (err, data) {
-      console.log(data);
       if (err) {
         res.status(405).json({ success: false });
         console.log("Error", err);

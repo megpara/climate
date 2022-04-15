@@ -5,10 +5,8 @@ export default function RegisterSuccess() {
   const router = useRouter();
   return (
     <div className={styles.successConatiner}>
-      <div className="text-block">Thank you for registering!</div>
-      <div className="text-block">
-        This event is free, but we greatly appreciate any donations
-      </div>
+      <div className="text-block">Thank you! You are registered!</div>
+      <div className="text-block">Registration is free but donations help!</div>
 
       <DonateButton />
       <div className="text-block">

@@ -111,9 +111,11 @@ export default function ScheduleItem({
             ""
           )} */}
         </div>
-        <div className="flex items-center" style={{ marginTop: 2 }}>
-          Attendance: {numberOfAttendees} <Person style={{ marginLeft: 4 }} />
-        </div>
+        {isRegistered && (
+          <div className="flex items-center" style={{ marginTop: 2 }}>
+            {numberOfAttendees} <Person style={{ marginLeft: 4 }} />
+          </div>
+        )}
 
         <div className={styles.time}>
           {format(time, "h:mmaaaaa'm'")} - {format(timeEnd, "h:mmaaaaa'm'")}

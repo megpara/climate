@@ -15,6 +15,11 @@ const ButtonText = {
   Success: "Success!",
 };
 
+const endpoints = {
+  user: "/api/user",
+  registration: "/api/get-registration",
+};
+
 export default function Login({ schedule }) {
   const { user, loading, registration } = useAuth();
   const { attendees, mutate } = useAttendees();
@@ -35,8 +40,8 @@ export default function Login({ schedule }) {
     });
     if (authRequest.ok) {
       setButtonText(ButtonText.Success);
-      mutate("/api/user");
-      mutate("/api/get-registration");
+      mutate(endpoints.user);
+      mutate(endpoints.registration);
       setTimeout(() => {
         if (typeof window !== "undefined") {
           window.location.reload();

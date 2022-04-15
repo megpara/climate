@@ -9,7 +9,8 @@ export default function Schedule({
   mutate,
   attendees,
 }) {
-  const scrolled = useScrolled(20);
+  // const scrolled = useScrolled(0);
+  const scrolled = true;
   const router = useRouter();
   return (
     <>
@@ -34,9 +35,10 @@ export default function Schedule({
           fontWeight: "bold",
           fontSize: "1.3rem",
           margin: "10px auto",
+          backgroundColor: "aqua",
         }}
       >
-        Please select items from the schedule you would like to attend
+        Please select the panels you would like to attend!
       </div>
       <SchedulePage
         schedule={schedule}

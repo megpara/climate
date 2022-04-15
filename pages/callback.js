@@ -16,7 +16,6 @@ export default function Callback() {
     });
 
     if (authRequest.ok) {
-      console.log("great job");
       router.push("/");
       // mutate("/api/user");
     }

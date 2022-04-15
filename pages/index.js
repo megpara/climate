@@ -155,6 +155,9 @@ const Features = () => {
         </div>
       </div>
       <div className={styles.footer}>
+        <div style={{ color: "var(--green)" }}>
+          The event is free but donations help!
+        </div>
         <DonateButton />
 
         <div className={styles.footerImgContainer}>

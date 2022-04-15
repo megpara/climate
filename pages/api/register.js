@@ -27,7 +27,6 @@ export default async function handler(req, res) {
         res.status(405).json({ success: false });
         console.log("Error", err);
       } else {
-        console.log("Success", data);
         res.json({ success: true, message: "registration_success" });
       }
       // res.end();
