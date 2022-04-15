@@ -22,7 +22,6 @@ export default function ({
         const errors = Object.keys(formik.errors).map(
           (key) => formik.errors[key]
         );
-        console.log(errors);
         return (
           <Form className={formStyles.form}>
             {children}
