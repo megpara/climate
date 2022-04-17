@@ -1,4 +1,5 @@
 import useSWR from "swr";
+import { endpoints } from "../lib/constants";
 
 function fetcher(route) {
   /* our token cookie gets sent with this request */
@@ -8,13 +9,13 @@ function fetcher(route) {
 }
 
 export default function useAuth() {
-  const { data: user, error, mutate } = useSWR("/api/user", fetcher);
+  const { data: user, error, mutate } = useSWR(endpoints.user, fetcher);
   // const { data: registration, mutate: registerMutate } = useSWR(
   //   `/api/get-registration?email=${user && user.email}`,
   //   fetcher
   // );
   const { data: registration, mutate: registerMutate } = useSWR(
-    `/api/get-registration`,
+    endpoints.registration,
     fetcher
   );
 

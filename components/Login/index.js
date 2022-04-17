@@ -18,6 +18,7 @@ const ButtonText = {
 const endpoints = {
   user: "/api/user",
   registration: "/api/get-registration",
+  login: "/api/login",
 };
 
 export default function Login({ schedule }) {
@@ -34,7 +35,7 @@ export default function Login({ schedule }) {
       email,
       redirectURI: `${getHost()}/callback`,
     });
-    const authRequest = await fetch("/api/login", {
+    const authRequest = await fetch(endpoints.login, {
       method: "POST",
       headers: { Authorization: `Bearer ${did}` },
     });
@@ -50,7 +51,7 @@ export default function Login({ schedule }) {
     }
   };
   const logout = async () => {
-    await fetch("/api/logout").then(() => {
+    await fetch(endpoints.login).then(() => {
       window.location.reload();
     });
   };
