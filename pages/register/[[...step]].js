@@ -10,11 +10,9 @@ import useView from "../../hooks/useView";
 import PageLayout from "../../components/PageLayout";
 
 import styles from "../../styles/Register.module.css";
-import { useEffect } from "react";
 import Contentful from "../../lib/contentful";
 import useAttendees from "../../hooks/useAttendees";
 
-import ErrorPage from "next/error";
 import useScrolled from "../../hooks/useScrolled";
 
 const views = {
