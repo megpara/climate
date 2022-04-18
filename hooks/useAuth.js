@@ -15,7 +15,7 @@ export default function useAuth() {
   //   fetcher
   // );
   const { data: registration, mutate: registerMutate } = useSWR(
-    endpoints.registration,
+    "/api/get-registration",
     fetcher
   );
 
