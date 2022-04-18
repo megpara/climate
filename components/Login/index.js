@@ -42,7 +42,7 @@ export default function Login({ schedule }) {
     if (authRequest.ok) {
       setButtonText(ButtonText.Success);
       mutate(endpoints.user);
-      mutate("/api/get-registration");
+      mutate(endpoints.registration);
       setTimeout(() => {
         if (typeof window !== "undefined") {
           window.location.reload();
