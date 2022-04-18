@@ -60,6 +60,7 @@ const useApi = () => {
       if (valid) {
         const then = new Date();
         dispatch({ type: FETCHING });
+        data.email = data.email.toLowerCase();
         const response = await postData(data, route);
         const now = new Date() - then;
         const delay = MIN_FETCHING_TIME_MS - now;
