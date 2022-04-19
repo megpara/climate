@@ -3,7 +3,6 @@ import formStyles from "../../styles/Form.module.css";
 import SubmitButton from "./SubmitButton";
 // Not being used, but could be a way to abstract from boilerplate-- but it is currently identical to the Formik api setup
 // The buttons could be attached to this
-// Fields could be optionally children or data
 export default function ({
   submit,
   initialValues,
