@@ -1,9 +1,8 @@
 import ddb from "./ddb";
 import Iron from "@hapi/iron";
 import CookieService from "../../lib/cookie";
-
+import googleSheets from "../../lib/google-sheets";
 export default async function handler(req, res) {
-  // unsafe
   const registration = req.body;
 
   const Item = Object.keys(registration).reduce((pv, cv) => {
@@ -27,6 +26,8 @@ export default async function handler(req, res) {
         res.status(405).json({ success: false });
         console.log("Error", err);
       } else {
+        // update google sheet
+        googleSheets.init(ddb);
         res.json({ success: true, message: "registration_success" });
       }
       // res.end();
