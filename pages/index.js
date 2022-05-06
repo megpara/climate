@@ -165,12 +165,10 @@ const Features = () => {
             <img style={{ width: "100%" }} src={"science_literary_logo.png"} />
           </div>
           <div>
-            <img style={{ width: "100%" }} src={"nasw_logo.svg"} />
+            <img style={{ width: "100%" }} src={"so-cal-science-writers.svg"} />
           </div>
         </div>
-        <div className={styles.detail}>
-          Organized by SoCal Science Writers (Regional Chapter of the NASW)
-        </div>
+        <div className={styles.detail}>Organized by SoCal Science Writers</div>
         <div className={styles.detail}>
           Funded by a Grant from the Science Literacy Foundation
         </div>
