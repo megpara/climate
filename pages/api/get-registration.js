@@ -18,7 +18,6 @@ export default async function handler(req, res) {
   // If there is a cookie, no need to go to DB
   // Will this have side effects?
   if (registration) {
-    // return res.end();
     return res.json(registration);
   }
 
