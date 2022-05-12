@@ -30,7 +30,6 @@ export default async function handler(req, res) {
         googleSheets.init(ddb);
         res.json({ success: true, message: "registration_success" });
       }
-      // res.end();
       resolve();
     });
   });
