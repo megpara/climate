@@ -1,4 +1,3 @@
-import useScrolled from "../../hooks/useScrolled";
 import SchedulePage from "../../components/Schedule";
 import styles from "../../styles/Register.module.css";
 import { AnimatePresence, motion } from "framer-motion";
@@ -9,7 +8,6 @@ export default function Schedule({
   mutate,
   attendees,
 }) {
-  // const scrolled = useScrolled(0);
   const scrolled = true;
   const router = useRouter();
   return (
