@@ -96,11 +96,19 @@ function listMajors(auth) {
   };
   ddb.scan(params, async function (err, data) {
     if (err) res.status(404).send();
+    console.log(data);
     await sheets.spreadsheets.values.clear({
       spreadsheetId: climate_id,
-      range: "Sheet1!A1:E",
+      range: "registration-db!A1:E",
     });
-    const header = ["First Name", "Last Name", "Affiliation", "Email", "Phone"];
+    const header = [
+      "First Name",
+      "Last Name",
+      "Affiliation",
+      "Email",
+      "Phone",
+      "Attending",
+    ];
     const d = data.Items.map((row) => {
       return [
         row.firstName.S,
@@ -108,11 +116,12 @@ function listMajors(auth) {
         row.affiliation.S,
         row.email.S,
         row.phone.S,
+        row.attending ? row.attending.S : "",
       ];
     });
     sheets.spreadsheets.values.append({
       spreadsheetId: climate_id,
-      range: "Sheet1!A1",
+      range: "registration-db!A1",
       valueInputOption: "RAW",
       resource: { values: [header, ...d] },
     });

@@ -10,6 +10,7 @@ const keys = [
   "email",
   { name: "phone", label: "Phone Number" },
   { name: "affiliation", label: "Affiliation / Job title" },
+  { name: "attending", label: "How will you be attending?" },
 ];
 
 export default function RegisterForm({
@@ -42,6 +43,11 @@ export default function RegisterForm({
       <FieldItem data={fields.email} />
       <FieldItem data={fields.phone} />
       <FieldItem data={fields.affiliation} />
+      <FieldItem
+        data={fields.attending}
+        isSelect={true}
+        options={["", "virtually", "inPerson"]}
+      />
     </Form>
   );
 }
