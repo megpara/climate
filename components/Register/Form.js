@@ -46,7 +46,7 @@ export default function RegisterForm({
       <FieldItem
         data={fields.attending}
         isSelect={true}
-        options={["", "virtually", "inPerson"]}
+        options={["", "virtual", "inPerson"]}
       />
     </Form>
   );
