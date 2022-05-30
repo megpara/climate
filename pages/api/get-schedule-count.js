@@ -43,7 +43,7 @@ export default async function handler(req, res) {
     return { slug: item.slug, count: emails.length };
   });
 
-  res.json(scheduleInPerson.join("\n"));
+  res.json(scheduleInPerson);
   return new Promise((resolve, _) => {
     ddb.scan(params, async function (err, data) {
       if (err) res.status(404).send();
