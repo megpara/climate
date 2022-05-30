@@ -4,16 +4,16 @@ import CookieService from "../../lib/cookie";
 
 export default async function handler(req, res) {
   let registration;
-  try {
-    registration = await Iron.unseal(
-      CookieService.getRegisteredToken(req.cookies),
-      process.env.ENCRYPTION_SECRET,
-      Iron.defaults
-    );
-  } catch (err) {
-    console.log("no register cookie");
-    res.end();
-  }
+  // try {
+  //   registration = await Iron.unseal(
+  //     CookieService.getRegisteredToken(req.cookies),
+  //     process.env.ENCRYPTION_SECRET,
+  //     Iron.defaults
+  //   );
+  // } catch (err) {
+  //   console.log("no register cookie");
+  //   res.end();
+  // }
 
   const emailParams = {
     TableName: "climate",
