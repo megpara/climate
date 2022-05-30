@@ -26,36 +26,36 @@ export default async function handler(req, res) {
   const emailsInPersonItems = (await ddb.docClient.scan(emailParams).promise())
     .Items;
   const emailsInPerson = emailsInPersonItems.map(({ email }) => {
-    console.log(email);
+    // console.log(email);
     return email.toLowerCase();
   });
-  if (registration.email !== "undefined") {
-    var params = {
-      TableName: "schedule",
-    };
-    const schedule = (await ddb.docClient.scan(params).promise()).Items;
-    const scheduleInPerson = schedule.map((item) => {
-      console.log(item);
-      const emails = item.attendees.values.filter((email) =>
-        emailsInPerson.includes(email.toLowerCase())
-      );
-      return `${item.slug}: ${emails.length}`;
-      return { slug: item.slug, count: emails.length };
-    });
+  // if (registration.email !== "undefined") {
+  var params = {
+    TableName: "schedule",
+  };
+  const schedule = (await ddb.docClient.scan(params).promise()).Items;
+  const scheduleInPerson = schedule.map((item) => {
+    console.log(item);
+    const emails = item.attendees.values.filter((email) =>
+      emailsInPerson.includes(email.toLowerCase())
+    );
+    return `${item.slug}: ${emails.length}`;
+    return { slug: item.slug, count: emails.length };
+  });
 
-    res.json(scheduleInPerson.join("\n"));
-    return new Promise((resolve, _) => {
-      ddb.scan(params, async function (err, data) {
-        if (err) res.status(404).send();
-        console.log(data);
+  res.json(scheduleInPerson.join("\n"));
+  return new Promise((resolve, _) => {
+    ddb.scan(params, async function (err, data) {
+      if (err) res.status(404).send();
+      console.log(data);
 
-        res.json(data.Items);
-        resolve();
-      });
+      res.json(data.Items);
+      resolve();
     });
-  } else {
-    res.status(405).end();
-  }
+  });
+  // } else {
+  //   res.status(405).end();
+  // }
 }
 
 // TO GET COUNTS FOR EACH SCHEDULE EVENT
