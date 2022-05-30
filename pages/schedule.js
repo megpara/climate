@@ -7,6 +7,7 @@ import PageLayout from "../components/PageLayout";
 export default function SchedulePage({ schedule }) {
   const { attendees, mutate } = useAttendees();
   const { registration } = useAuth();
+
   return (
     <PageLayout>
       <Schedule

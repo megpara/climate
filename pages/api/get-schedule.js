@@ -30,3 +30,10 @@ export default async function handler(req, res) {
     res.status(405).end();
   }
 }
+
+// TO GET COUNTS FOR EACH SCHEDULE EVENT
+// create a map of emails that are labeled as attending in person
+// emailsInPerson =  ddb.scan({Table:climate, where attending === inPerson})
+// {slug, attendees} = ddb.scan({Table:schedule})
+// for each attendees from slug
+// count = attendees.filter(attendee => emailsInPerson.includes(attendee))

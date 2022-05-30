@@ -109,7 +109,7 @@ function listMajors(auth) {
       "Phone",
       "Attending",
     ];
-    const d = data.Items.map((row) => {
+    const d = data.Items.filter((row) => row.firstName).map((row) => {
       return [
         row.firstName.S,
         row.lastName.S,
