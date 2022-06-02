@@ -152,6 +152,18 @@ const Hero = forwardRef((_, sunsetRef) => {
             <div className={styles.contentBlock}>
               <div>Sign on to general UCLA Wi-Fi. No password required</div>
             </div>
+            <div
+              className={styles.subtitle}
+              style={{ fontWeight: "bold", fontSize: "1.5rem" }}
+            >
+              LUNCH
+            </div>
+            <div className={styles.contentBlock}>
+              <div>
+                Food Court, First Floor: Veggie Grill, Panda Express, Rubio's,
+                Carl's Junior
+              </div>
+            </div>
           </div>
         </div>
         {/* <AnimatePresence>
