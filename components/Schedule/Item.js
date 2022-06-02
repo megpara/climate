@@ -10,6 +10,7 @@ import Checkmark from "../Icons/Checkmark";
 import Person from "../Icons/Person";
 import Spinner from "../Animations/Spinner";
 import { motion } from "framer-motion";
+import _ from "lodash";
 const scheduleRequest = (slug, method) =>
   fetch("/api/schedule-register", {
     method,
@@ -104,13 +105,9 @@ export default function ScheduleItem({
           ""
         )}
         <div style={{}} className={styles.title}>
-          {item.title}{" "}
-          {/* {isRegistered ? (
-            <span className="littleText">(You are attending this)</span>
-          ) : (
-            ""
-          )} */}
+          {item.title}
         </div>
+
         {isRegistered && (
           <div className="flex items-center" style={{ marginTop: 2 }}>
             {numberOfAttendees} <Person style={{ marginLeft: 4 }} />
@@ -120,7 +117,9 @@ export default function ScheduleItem({
         <div className={styles.time}>
           {format(time, "h:mmaaaaa'm'")} - {format(timeEnd, "h:mmaaaaa'm'")}
         </div>
-
+        <div className={styles.room}>
+          {item.room !== "null" && _.startCase(item.room)}
+        </div>
         {desc !== CONTENTFUL_NULL_FIELD && (
           <div
             className={styles.description}

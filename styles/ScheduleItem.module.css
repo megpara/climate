@@ -9,5 +9,12 @@
   font-weight: 600;
 }
 
+.room {
+  font-size:1.2rem;
+  font-weight:500;
+  padding:2px 0px;
+  letter-spacing: .5px;
+}
+
 .description {
 }

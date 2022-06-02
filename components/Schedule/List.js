@@ -19,7 +19,6 @@ export default function List({
       return attendees[item.slug].includes(registration.email);
     }
   };
-
   return (
     <div className={styles.container}>
       <div className={styles.schedule}>
@@ -29,14 +28,18 @@ export default function List({
           day = time.getDate();
           const showDay = day !== prevDay;
           prevDay = day;
+          console.log(item.room);
           return (
-            <div key={item.title} style={{ marginBottom: 10 }}>
-              <div style={{ fontSize: "1.3rem", fontWeight: "bold" }}>
+            <div key={item.title} style={{ marginBottom: 20 }}>
+              <div style={{ fontSize: "1.1rem", fontWeight: "bold" }}>
                 {item.title}
               </div>
               <div>
                 {format(time, "h:mmaaaaa'm'")} -{" "}
                 {format(timeEnd, "h:mmaaaaa'm'")}
+              </div>
+              <div className={styles.room}>
+                {item.room !== "null" && _.startCase(item.room)}
               </div>
               {/* <ScheduleItem
                 item={item}
