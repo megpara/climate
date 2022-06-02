@@ -11,7 +11,7 @@ export default function OnSite() {
 
   // There are also buses and a metro stop in Westwood.
 
-  // We may need to add a page for Barney's Beanery. I'm checking right now.
+  // We may need to add a page for Barney's Beanery. I'm checking right now
   return (
     <div>
       <div>map</div>
