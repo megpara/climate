@@ -3,7 +3,7 @@ export default function OnSite() {
     <div>
       <div>map</div>
       <div>schedule list</div>
-      <div>parking</div>
+      <div></div>
     </div>
   );
 }
